@@ -1,0 +1,21 @@
+{
+  "name": "streaming-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ws": "^8.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "@types/ws": "^8.5.4",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
