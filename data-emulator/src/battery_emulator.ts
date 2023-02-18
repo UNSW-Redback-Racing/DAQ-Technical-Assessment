@@ -5,11 +5,14 @@ const tcpClient = new net.Socket();
 const HOST = "localhost"
 const PORT = 12000
 
+const MILLISECONDS = 500;
+const ERROR_CHANCE = 15;
+
 function generate_and_send_battery_data() {
     let generated_value: number = 0;
-    let error_chance = getRandomIntInclusive(1, 15);
+    let error_flag = getRandomIntInclusive(1, ERROR_CHANCE);
     
-    switch (error_chance) {
+    switch (error_flag) {
         case 1:
             generated_value = getRandomIntInclusive(82, 1000); // out of range
             break;
@@ -28,7 +31,7 @@ function generate_and_send_battery_data() {
     
     if (!(tcpClient.destroyed || tcpClient.closed)) {
         let json_string = JSON.stringify(data)
-        if (error_chance === 3) {
+        if (error_flag === 3) {
             // make invalid JSON string by adding an extra symbol
             json_string += '}'
         }
@@ -55,5 +58,6 @@ tcpClient.on('error', function(e) {
 });
 
 tcpClient.on("connect", () => {
-    setInterval(generate_and_send_battery_data, 500);
+    console.log(`starting to generate and send emulated battery data every ${MILLISECONDS} milliseconds`)
+    setInterval(generate_and_send_battery_data, MILLISECONDS);
 })

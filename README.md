@@ -1,7 +1,9 @@
 # UNSW Redback Racing - Data Acquisition Team - Technical Assessment
 
 This assessment aims to gauge your current technical ability and give you a practical introduction to some of what we do here at Redback Racing. 
-We don't expect everyone to complete everything perfectly, just try your best to research things yourself, look through the code and do what you can!
+We don't expect everyone to complete everything perfectly - you may not be familiar with all the frameworks and tools mentioned here, and so you may find it helpful to consult the resources linked, as well as doing your own research. 
+
+We also highly encourage you to read through the code and try to understand how it currently works, as well as reading the terminal output of the code once you get it running.
 
 If there is a part you have attempted but cannot complete, then note down your approaches, thoughts and research in the [brainstorming.md](./brainstorming.md) file.
 
@@ -74,11 +76,11 @@ To see the UI, go to `localhost:3000` in your browser. The live battery value ma
 
 ## Tasks
 
-**NOTE: In the `battery_emulator.ts` file, you may change the following line to change the chances of generating out-of-range/invalid data, 
-for testing purposes:**
+**NOTE: In the `battery_emulator.ts` file, you may change the following constants to change the frequency of data being sent, as well as the chances of generating out-of-range/invalid data, for testing purposes:**
 
 ```
-let error_chance = getRandomIntInclusive(1, 15);
+const MILLISECONDS = 500;
+const ERROR_CHANCE = 15;
 ```
 
 **You may NOT modify anything else in the `battery_emulator.ts` file**
@@ -103,6 +105,18 @@ The frontend is currently very basic. Extend the frontend by:
   
 * Making the frontend more aesthetically pleasing, however you see fit.
 
+### Part 4 - EXTENSION TASK
+
+Build a CI/CD pipeline with GitHub Actions which automates:
+
+1. linting
+
+2. unit testing
+
+3. building docker images for each application
+
+4. pushing them to Docker Hub
+
 ## Resources 
 
 ### Backend 
@@ -120,6 +134,10 @@ The frontend is currently very basic. Extend the frontend by:
  - https://www.youtube.com/watch?v=hQAHSlTtcmY 
  - https://www.youtube.com/watch?v=Tn6-PIqc4UM
 
+### Cloud CI/CD
 
+ - https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
+ - https://docs.docker.com/
+ - https://www.youtube.com/watch?v=gAkwW2tuIqE
 
 
