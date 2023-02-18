@@ -16,7 +16,7 @@ If you have any questions/require clarification about the spec, direct them to t
 1. Fork the repository to your own Github account
 2. Send us a link to your repository at: https://forms.gle/ksECPdDX6rUixt388
 
-## The Task - Live Battery Monitoring System
+## Live Battery Monitoring System
 
 You are given code for a simple live telemetry application which is able to visualise sensor data streamed over a network - specifically, it is able to visualise the temperature of a Electric Vehicle battery, ensuring that it doesn't get dangerously hot and explode!
 
@@ -25,8 +25,50 @@ It consists of three components:
 * **Backend Streaming Service** - this is an application that forwards incoming packets of data to connected frontend clients over the WebSocket protocol.
 * **Frontend** - this is the frontend application that will visualise the temperature of the battery.
 
-
 ![system-flow](./system-flow.svg)
+
+### Your Tasks
+
+**NOTE: In the `battery_emulator.ts` file, you may change the following constants to change the frequency of data being sent, as well as the chances of generating out-of-range/invalid data, for testing purposes:**
+
+```
+const MILLISECONDS = 500;
+const ERROR_CHANCE = 15;
+```
+
+**You may NOT modify anything else in the `battery_emulator.ts` file**
+
+### Part 1
+
+When running the emulator, the streaming service will occasionally crash. Think about where this crash is happening, and add something to the code to better handle this issue.
+
+NOTE: you may have to run this for up to ~30 seconds before the crash happens.
+
+### Part 2
+
+The battery has a safe operating range of 20 - 80 degrees celcius. 
+
+Add a feature to the backend streaming service so that each time the received battery temperature exceeds this range more than 3 times in 5 seconds, the current timestamp is logged to a file named 'incidents.log'.
+
+### Part 3
+
+The frontend is currently very basic. Extend the frontend by:
+
+* Making the battery temperature value change colours based on the current temperature (e.g. changing to red when the safe temperature range is exceeded).
+  
+* Making the frontend more aesthetically pleasing, however you see fit.
+
+### Part 4 - EXTENSION TASK
+
+Build a CI/CD pipeline with GitHub Actions which automates:
+
+1. linting
+
+2. unit testing
+
+3. building docker images for each application
+
+4. pushing them to Docker Hub
 
 
 ## Setup Steps
@@ -74,48 +116,6 @@ DAQ-Technical-Assessment/data-emulator/$> npm start
 
 To see the UI, go to `localhost:3000` in your browser. The live battery value may not update properly until you fix the issue in [Part 1](#part-1). You may also have to refresh the page after restarting the streaming-service.
 
-## Tasks
-
-**NOTE: In the `battery_emulator.ts` file, you may change the following constants to change the frequency of data being sent, as well as the chances of generating out-of-range/invalid data, for testing purposes:**
-
-```
-const MILLISECONDS = 500;
-const ERROR_CHANCE = 15;
-```
-
-**You may NOT modify anything else in the `battery_emulator.ts` file**
-
-### Part 1
-
-When running the emulator, the streaming service will occasionally crash. Think about where this crash is happening, and add something to the code to better handle this issue.
-
-NOTE: you may have to run this for up to ~30 seconds before the crash happens.
-
-### Part 2
-
-The battery has a safe operating range of 20 - 80 degrees. 
-
-Add a feature to the backend streaming service so that each time the received battery temperature exceeds this range more than 3 times in 5 seconds, the current timestamp is logged to a file named 'incidents.log'.
-
-### Part 3
-
-The frontend is currently very basic. Extend the frontend by:
-
-* Making the battery temperature value change colours based on the current temperature (e.g. changing to red when the safe temperature range is exceeded).
-  
-* Making the frontend more aesthetically pleasing, however you see fit.
-
-### Part 4 - EXTENSION TASK
-
-Build a CI/CD pipeline with GitHub Actions which automates:
-
-1. linting
-
-2. unit testing
-
-3. building docker images for each application
-
-4. pushing them to Docker Hub
 
 ## Resources 
 
