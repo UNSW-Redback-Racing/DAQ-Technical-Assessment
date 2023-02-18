@@ -21,7 +21,7 @@ If you have any questions/require clarification about the spec, direct them to t
 You are given code for a simple live telemetry application which is able to visualise sensor data streamed over a network - specifically, it is able to visualise the temperature of a Electric Vehicle battery, ensuring that it doesn't get dangerously hot and explode!
 
 It consists of three components:
-* **Data Emulator** - this is meant to emulate a stream of data coming from the battery temperature sensor.
+* **Data Emulator** - this is meant to emulate data coming from the battery temperature sensor. It streams this data over TCP to the backend streaming service.
 * **Backend Streaming Service** - this is an application that forwards incoming packets of data to connected frontend clients over the WebSocket protocol.
 * **Frontend** - this is the frontend application that will visualise the temperature of the battery.
 
