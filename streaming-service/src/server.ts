@@ -6,6 +6,26 @@ const TCP_PORT = parseInt(process.env.TCP_PORT || '12000', 10);
 const tcpServer = net.createServer();
 const websocketServer = new WebSocketServer({ port: 8080 });
 
+/**
+ * Returns true if `item` is json valid
+ * @param item string to check if json
+ * @returns true if `item` is a valid json
+ */
+const isJSON = (item: string): boolean => {
+    item = typeof item !== "string" ? JSON.stringify(item) : item;
+
+    try {
+        item = JSON.parse(item);
+    } catch (e) {
+        return false;
+    }
+
+    if (typeof item === "object" && item !== null) {
+        return true;
+    }
+    return false;
+}
+
 tcpServer.on('connection', (socket) => {
     console.log('TCP client connected');
 
@@ -14,7 +34,11 @@ tcpServer.on('connection', (socket) => {
 
         // HINT: what happens if the JSON in the received message is formatted incorrectly?
         // HINT: see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
-        let currJSON = JSON.parse(msg.toString());
+        if (isJSON(msg.toString())) {
+            const currJSON = JSON.parse(msg.toString());
+        } else {
+            console.error("Last message was not JSON valid!");
+        }
 
         websocketServer.clients.forEach(function each(client) {
             if (client.readyState === WebSocket.OPEN) {
