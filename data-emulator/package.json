@@ -1,17 +1,26 @@
 {
-  "name": "data-emulator",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "ts-node src/battery_emulator.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^18.13.0",
-    "typescript": "^4.9.5"
-  }
+    "name": "data-emulator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "ts-node src/battery_emulator.ts",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint 'src/**/*.{ts,js}'",
+        "lint:fix": "eslint 'src/**/*.{ts,tsx,js,jsx}' --fix",
+        "prettier": "prettier --check 'src/**/*.{ts,js}'",
+        "prettier:write": "prettier --write 'src/**/*.{ts,js}'"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^18.13.0",
+        "@typescript-eslint/eslint-plugin": "^5.52.0",
+        "eslint": "^8.34.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-plugin-import": "^2.27.5",
+        "prettier": "^2.8.4",
+        "typescript": "^4.9.5"
+    }
 }
