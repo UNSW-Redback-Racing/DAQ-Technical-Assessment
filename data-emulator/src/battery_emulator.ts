@@ -11,7 +11,7 @@ const ERROR_CHANCE = 15;
 function generate_and_send_battery_data() {
     let generated_value: number = 0;
     let error_flag = getRandomIntInclusive(1, ERROR_CHANCE);
-    
+
     switch (error_flag) {
         case 1:
             generated_value = getRandomIntInclusive(82, 1000); // out of range
@@ -23,12 +23,12 @@ function generate_and_send_battery_data() {
             generated_value = getRandomIntInclusive(20, 80) + Math.random();
             break;
     }
-    
+
     let data = {
-        "battery_temperature" : generated_value,
+        "battery_temperature": generated_value,
         "timestamp": Date.now()
     };
-    
+
     if (!(tcpClient.destroyed || tcpClient.closed)) {
         let json_string = JSON.stringify(data)
         if (error_flag === 3) {
@@ -40,7 +40,7 @@ function generate_and_send_battery_data() {
         console.log("connection to server closed");
         exit();
     }
-    
+
 }
 
 function getRandomIntInclusive(min: number, max: number) {
@@ -49,11 +49,11 @@ function getRandomIntInclusive(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }
 
-tcpClient.connect(PORT, HOST, function(){
+tcpClient.connect(PORT, HOST, function () {
     console.log('CONNECTED TO: ' + HOST + ':' + PORT);
 });
 
-tcpClient.on('error', function(e) {
+tcpClient.on('error', function (e) {
     console.log(e.message);
 });
 
