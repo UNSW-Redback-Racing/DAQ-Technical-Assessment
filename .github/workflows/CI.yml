@@ -12,7 +12,7 @@ on:
       - main
 
 jobs:
-  frontend:
+  frontend-testing:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -37,3 +37,19 @@ jobs:
         run: npm run prettier
       - name: Build
         run: npm run build
+  frontend-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./battery-ui
+    needs: [frontend-testing]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Build Docker Image
+        # env:
+        #   ECR_REGISTRY:
+        #   IMAGE_NAME:
+        #   VERSION:
+        run: |
+          docker build . -t battery-ui-FE
+        # I don't have a docker account :)
