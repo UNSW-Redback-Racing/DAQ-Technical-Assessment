@@ -8,7 +8,7 @@ const websocketServer = new WebSocketServer({ port: 8080 });
 
 tcpServer.on('connection', (socket) => {
     console.log('TCP client connected');
-    
+
     socket.on('data', (msg) => {
         console.log(msg.toString());
 
@@ -18,15 +18,15 @@ tcpServer.on('connection', (socket) => {
 
         websocketServer.clients.forEach(function each(client) {
             if (client.readyState === WebSocket.OPEN) {
-              client.send(msg.toString());
+                client.send(msg.toString());
             }
-          });
+        });
     });
 
     socket.on('end', () => {
         console.log('Closing connection with the TCP client');
     });
-    
+
     socket.on('error', (err) => {
         console.log('TCP client error: ', err);
     });
@@ -36,7 +36,7 @@ websocketServer.on('listening', () => console.log('Websocket server started'));
 
 websocketServer.on('connection', async (ws: WebSocket) => {
     console.log('Frontend websocket client connected to websocket server');
-    ws.on('error', console.error);  
+    ws.on('error', console.error);
 });
 
 tcpServer.listen(TCP_PORT, () => {
