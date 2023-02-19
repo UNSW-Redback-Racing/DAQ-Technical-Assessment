@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import LiveValue from './live_value'
-import RedbackLogo from './redback_logo.jpg';
-import './App.css';
+import React, { useState, useRef, useEffect } from "react";
+import LiveValue from "./live_value";
+import RedbackLogo from "./redback_logo.jpg";
+import "./App.css";
 
 function App() {
-
   const [temperature, setTemperature] = useState<number>(0);
 
   const ws: any = useRef(null);
@@ -37,11 +36,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <img src={RedbackLogo} className="redback-logo" alt="Redback Racing Logo"/>
-        <p className='value-title'>
-          Live Battery Temperature
-        </p>
-        <LiveValue temp={temperature}/>
+        <img
+          src={RedbackLogo}
+          className="redback-logo"
+          alt="Redback Racing Logo"
+        />
+        <p className="value-title">Live Battery Temperature</p>
+        <LiveValue temp={temperature} />
       </header>
     </div>
   );
