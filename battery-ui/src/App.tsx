@@ -6,7 +6,8 @@ import RedbackLogo from "./redback_logo.jpg";
 function App() {
   const [temperature, setTemperature] = useState<number>(0);
 
-  const ws: unknown = useRef(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ws: any = useRef(null);
 
   useEffect(() => {
     // using the native browser WebSocket object
