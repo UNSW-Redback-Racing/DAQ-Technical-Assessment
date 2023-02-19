@@ -6,10 +6,11 @@ interface TemperatureProps {
 }
 
 function LiveValue({ temp }: TemperatureProps) {
-  let valueColour = "white";
-
   return (
-    <header className="live-value" style={{ color: valueColour }}>
+    <header
+      className="live-value"
+      style={{ color: temp >= 80 ? "red" : "green" }}
+    >
       {`${temp.toString()}°C`}
     </header>
   );
