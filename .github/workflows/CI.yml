@@ -48,10 +48,15 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v3
-      - name: Build Docker Image
-        # env:
-        #   ECR_REGISTRY:
-        #   IMAGE_NAME:
-        #   VERSION:
+      - name: Build Docker Image and Tag
+        env:
+          IMAGE_NAME: daq-battery-ui
+          VERSION: "prod-1.0.${{ github.run_number }}"
         run: |
-          docker build . -t battery-ui-fe
+          docker build . --file Dockerfile --tag $IMAGE_NAME:$VERSION
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@v5
+        with:
+          name: kuroson/daq-battery-ui-fe
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
