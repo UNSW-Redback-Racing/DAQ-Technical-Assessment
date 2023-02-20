@@ -41,9 +41,9 @@ jobs:
         run: npm run build
   frontend-deploy:
     runs-on: ubuntu-latest
-    # defaults:
-    # run:
-    # working-directory: ./battery-ui
+    defaults:
+      run:
+        working-directory: ./battery-ui
     needs: [frontend-testing]
     if: github.ref == 'refs/heads/main'
     steps:
@@ -54,5 +54,4 @@ jobs:
         #   IMAGE_NAME:
         #   VERSION:
         run: |
-          docker build ./battery-ui -t battery-ui-fe
-        # I don't have a docker account :)
+          docker build . -t battery-ui-fe
