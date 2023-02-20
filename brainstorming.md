@@ -38,3 +38,16 @@ This also contains a suite of WebSocket methods.
 
 ### **Diagnosing the Issue** 
 Changing output speed in battery_emulator.ts from 500ms to 1500ms. (Boomer reaction speed)
+
+Currently, there is no correct error handling behaviour for when the generated temperature value is not within the given range.
+
+One solution we can implement is to make a small change when the request is sent to the front end.
+- Within Line 17 of server.ts the JSON.parse method is failing from an invalid temperature because of the appended close bracket from Line 36 of battery_emulator.ts.
+- What we can do instead, is we can wrap the JSON.parse method in a try/catch statement and output the errors to the console.
+    - At least this way, any errors produced won't halt the program execution.
+
+> !! HOWERVER, invalid temperatures won't be displayed on the webpage and errors will only show up on the terminal which users are unlikely to open.
+
+This is critical as Redback users need to know when the battery hits those critical temperatures.
+
+=========================================================================

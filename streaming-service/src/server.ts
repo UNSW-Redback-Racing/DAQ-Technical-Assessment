@@ -14,7 +14,12 @@ tcpServer.on('connection', (socket) => {
 
         // HINT: what happens if the JSON in the received message is formatted incorrectly?
         // HINT: see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
-        let currJSON = JSON.parse(msg.toString());
+        try {
+            let currJSON = JSON.parse(msg.toString());
+        } catch (e: any) {
+            //throw new RangeError("Invalid temperature reading");
+            console.error(`${e.name}: ${e.message}`);
+        }
 
         websocketServer.clients.forEach(function each(client) {
             if (client.readyState === WebSocket.OPEN) {
