@@ -25,7 +25,7 @@
         "test": "jest --coverage=false",
         "lint": "eslint 'src/**/*.{ts,js}'",
         "build": "tsc",
-        "serve": "node build/server.js",
+        "serve": "node dist/server.js",
         "lint:fix": "eslint 'src/**/*.{ts,tsx,js,jsx}' --fix",
         "prettier": "prettier --check 'src/**/*.{ts,js}'",
         "prettier:write": "prettier --write 'src/**/*.{ts,js}'"

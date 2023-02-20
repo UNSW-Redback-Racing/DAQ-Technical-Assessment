@@ -12,4 +12,4 @@ ENV NODE_ENV production
 
 EXPOSE 12000
 
-CMD [ "node", "dist/server.js" ]
+CMD [ "node", "dist/battery_emulator.js" ]
