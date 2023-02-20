@@ -35,6 +35,8 @@ jobs:
         run: npm run lint
       - name: Prettier
         run: npm run prettier
+      - name: Run Tests
+        run: npm run test
       - name: Build
         run: npm run build
   frontend-deploy:
