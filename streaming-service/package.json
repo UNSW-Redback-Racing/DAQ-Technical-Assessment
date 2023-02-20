@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "dependencies": {
+        "ts-node": "^10.9.1",
         "ws": "^8.12.1"
     },
     "devDependencies": {
@@ -20,6 +21,8 @@
         "start": "ts-node src/server.ts",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint 'src/**/*.{ts,js}'",
+        "build": "tsc",
+        "serve": "node build/server.js",
         "lint:fix": "eslint 'src/**/*.{ts,tsx,js,jsx}' --fix",
         "prettier": "prettier --check 'src/**/*.{ts,js}'",
         "prettier:write": "prettier --write 'src/**/*.{ts,js}'"
