@@ -47,6 +47,7 @@ One solution we can implement is to make a small change when the request is sent
     - At least this way, any errors produced won't halt the program execution.
 
 > !! HOWERVER, invalid temperatures won't be displayed on the webpage and errors will only show up on the terminal which users are unlikely to open.
+    > RESOLVED: With Part 2.
 
 This is critical as Redback users need to know when the battery hits those critical temperatures.
 
