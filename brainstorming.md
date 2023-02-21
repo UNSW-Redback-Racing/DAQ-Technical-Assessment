@@ -36,7 +36,7 @@ using the React framework (front end)
 tcpServer.on() -> while the TCP method is on, console.log at the start of the TCP connections.
 This also contains a suite of WebSocket methods.
 
-### **Diagnosing the Issue** 
+### **Diagnosing the Issue; Part 1** 
 Changing output speed in battery_emulator.ts from 500ms to 1500ms. (Boomer reaction speed)
 
 Currently, there is no correct error handling behaviour for when the generated temperature value is not within the given range.
@@ -52,3 +52,19 @@ One solution we can implement is to make a small change when the request is sent
 This is critical as Redback users need to know when the battery hits those critical temperatures.
 
 =========================================================================
+
+## 21/02/2023 - Day Two
+
+### **Diagnosing the Issue; Part 2**
+
+After Part 1, the program will NOT halt execution of the of server.ts.
+
+PART 2 TODO: The battery has a safe operating range of 20˚C to 80˚C
+
+
+=========================================================================
+
+## APPENDIX
+I *think* DS_store is safe to delete. From my research, it's just a file that macOS creates to display directories or smth. 
+
+It doesn't show up in the file explorer on VSCode but I should probably add it to the .gitignore.
