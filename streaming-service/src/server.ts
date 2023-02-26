@@ -1,4 +1,5 @@
 import net from 'net';
+import { logTemp } from './invalid';
 import { WebSocket, WebSocketServer } from 'ws';
 
 const TCP_PORT = parseInt(process.env.TCP_PORT || '12000', 10);
@@ -21,6 +22,8 @@ tcpServer.on('connection', (socket) => {
             console.error(e);
             currJSON = JSON.parse(msg.toString().slice(0, -1));
         }
+
+        logTemp(currJSON);
 
         websocketServer.clients.forEach(function each(client) {
             if (client.readyState === WebSocket.OPEN) {
