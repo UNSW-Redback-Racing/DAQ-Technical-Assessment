@@ -11,23 +11,25 @@ tcpServer.on('connection', (socket) => {
     console.log('TCP client connected');
     
     socket.on('data', (msg) => {
-        console.log(msg.toString());
+
+        let data = msg.toString();
+        console.log(data);
 
         // HINT: what happens if the JSON in the received message is formatted incorrectly?
         // HINT: see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
         let currJSON;
         try {
-            currJSON = JSON.parse(msg.toString());
+            currJSON = JSON.parse(data);
         } catch (e) {
             console.error(e);
-            currJSON = JSON.parse(msg.toString().slice(0, -1));
+            currJSON = JSON.parse(data = data.slice(0, -1));
         }
 
         logTemp(currJSON);
 
         websocketServer.clients.forEach(function each(client) {
             if (client.readyState === WebSocket.OPEN) {
-              client.send(msg.toString());
+              client.send(data);
             }
           });
     });

@@ -1,3 +1,20 @@
+/* VARS */
+:root {
+  --interval: 2500ms;
+  --percentage: 0;
+}
+
+/* Color Change animation for temp val */
+@keyframes colorChange {
+  from {
+    color: rgb(255, 255, 99);
+  }
+
+  to {
+    color: #E93F33;
+  }
+}
+
 .App {
   text-align: center;
 }
@@ -14,9 +31,10 @@
 }
 
 .live-value {
-  color: white;
   font-size: calc(100px + 2vmin);
   padding: 5%;
+
+  animation: 100s linear calc(-1s * var(--percentage)) paused colorChange;
 }
 
 .redback-logo {
