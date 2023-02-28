@@ -1,7 +1,7 @@
 import Logo from './redback_logo.jpg';
 import { motion } from 'framer-motion'; 
 import './App.css';
-import { Dispatch, SetStateAction, useContext } from 'react';
+import { Dispatch, SetStateAction, useContext, useEffect } from 'react';
 import { DimContext } from './DimensionsProvider';
 
 interface LogoProps {
@@ -12,6 +12,15 @@ interface LogoProps {
 const RedbackLogo = ({ open, setOpen }: LogoProps) => {
 
   const {windowHeight, windowWidth, logoDimensions, scale} = useContext(DimContext)
+
+  // set vertical overflow if in portrait mode
+  useEffect(() => {
+    if (open && windowWidth < 796) {
+      document.body.style.overflow = 'scroll';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  }, [open, windowWidth])
 
   const sideOpen = {
     scale: scale,
