@@ -6,7 +6,7 @@ interface TemperatureProps {
   temp: number;
 }
 
-function LiveValue({ temp } : TemperatureProps) {
+function LiveValue({ temp }: TemperatureProps) {
 
   const interval = 666;
   

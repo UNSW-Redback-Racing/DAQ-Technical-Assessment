@@ -9,8 +9,8 @@ const MILLISECONDS = 2000;
 const ERROR_CHANCE = 5;
 
 function generate_and_send_battery_data() {
-    let generated_value: number = 0;
-    let error_flag = getRandomIntInclusive(1, ERROR_CHANCE);
+    let generated_value = 0;
+    const error_flag = getRandomIntInclusive(1, ERROR_CHANCE);
     
     switch (error_flag) {
         case 1:
@@ -24,7 +24,7 @@ function generate_and_send_battery_data() {
             break;
     }
     
-    let data = {
+    const data = {
         "battery_temperature" : generated_value,
         "timestamp": Date.now()
     };
