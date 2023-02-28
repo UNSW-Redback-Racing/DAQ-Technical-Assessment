@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import './App.css';
 import Content from './Content';
-import RedbackLogo from './RedbackLogo';
-import Temperature from './Temperature';
 
 function App() {
 
@@ -37,9 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Content temp={temperature} />
-      </header>
+      <Content temp={temperature} />
     </div>
   );
 }

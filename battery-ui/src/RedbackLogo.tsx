@@ -1,38 +1,54 @@
 import Logo from './redback_logo.jpg';
 import { motion } from 'framer-motion'; 
 import './App.css';
-import { Dispatch, SetStateAction, useContext } from 'react';
+import { Dispatch, SetStateAction, useContext, useEffect } from 'react';
 import { DimContext } from './DimensionsProvider';
 
 interface LogoProps {
   open: boolean,
   setOpen: Dispatch<SetStateAction<boolean>>,
-  setLoadTemp: Dispatch<SetStateAction<number>>;
 }
 
-const RedbackLogo = ({ open, setOpen, setLoadTemp }: LogoProps) => {
+const RedbackLogo = ({ open, setOpen }: LogoProps) => {
 
-  const {windowHeight, windowWidth, logoDimensions} = useContext(DimContext)
+  const {windowHeight, windowWidth, logoDimensions, scale} = useContext(DimContext)
+
+  // set vertical overflow if in portrait mode
+  useEffect(() => {
+    if (open && windowWidth < 796) {
+      document.body.style.overflow = 'scroll';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  }, [open, windowWidth])
+
+  const sideOpen = {
+    scale: scale,
+    translateX: `-${windowWidth / 2 - (windowHeight / logoDimensions - 1) * logoDimensions / 3}px`,
+    transition: { duration: 1 }
+  }
+
+  const bottomOpen = {
+    scale: 0.5,
+    translateY: `-${logoDimensions}px`,
+    transition: { duration: 1 }
+  }
 
 	const openVariants = {
-    open: {
-			scale: Math.min(Math.max(windowHeight / logoDimensions, 1), 2.5),   // scale within (1, 2.5)
-			translateX: `-${windowWidth / 2 - (windowHeight / logoDimensions - 1) * logoDimensions / 3}px`,
-			transition: { duration: 1 }
-		},
+    open: (windowWidth >= 796) ? sideOpen : bottomOpen,
     close: {
 			scale: 1.0,
 			translateX: `-${logoDimensions / 2}px`,
       translateY: `-${logoDimensions / 2}px`,
-			transition: { duration: 1 }
+			transition: { duration: 1, delay: 0.2 },
     },
   }
 
   const shakeVariants = {
     open: {},
     close: {
-      rotate: [0, 5, -5, 5, -5, 5, -5, 5, -5, 5, -5, 5, -5, 5, 0],
-      transition: { duration: 0.5, repeat: Infinity, repeatDelay: 1.5, delay: 1.5 }
+      opacity: [1, 0, 1],
+      transition: { duration: 2, repeat: Infinity, repeatDelay: 0.5, delay: 1.5 }
     }
   }
 
@@ -42,7 +58,7 @@ const RedbackLogo = ({ open, setOpen, setLoadTemp }: LogoProps) => {
       variants={shakeVariants}
     >
       <motion.img src={Logo} className="redback-logo" alt="Redback Racing Logo"
-        onClick={() => open ? setLoadTemp(2) : setOpen(true)}
+        onClick={() => setOpen(!open)}
         animate={ open ? "open": "close" }
         variants={openVariants}
         initial={false}
