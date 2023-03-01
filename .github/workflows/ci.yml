@@ -77,7 +77,6 @@ jobs:
 
     runs-on: ubuntu-latest
     needs: [battery-ui-lint-test]
-    context: ./battery-ui
 
     steps:
       -
@@ -96,6 +95,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
+          context: ./battery-ui
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/battery-ui
 
@@ -103,7 +103,6 @@ jobs:
   
     runs-on: ubuntu-latest
     needs: [streaming-service-lint-test]
-    context: ./streaming-service
 
     steps:
       -
@@ -122,6 +121,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
+          context: ./streaming-service
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/streaming-service
 
@@ -129,7 +129,6 @@ jobs:
   
     runs-on: ubuntu-latest
     needs: [data-emulator-lint-test]
-    context: ./data-emulator
 
     steps:
       -
@@ -148,5 +147,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
+          context: ./data-emulator
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/data-emulator
