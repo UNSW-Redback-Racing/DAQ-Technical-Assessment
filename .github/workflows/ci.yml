@@ -79,6 +79,9 @@ jobs:
     needs: [battery-ui-lint-test]
 
     steps:
+      - 
+        name: Checkout
+        uses: actions/checkout@v3
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -105,6 +108,9 @@ jobs:
     needs: [streaming-service-lint-test]
 
     steps:
+      - 
+        name: Checkout
+        uses: actions/checkout@v3
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -131,6 +137,9 @@ jobs:
     needs: [data-emulator-lint-test]
 
     steps:
+      - 
+        name: Checkout
+        uses: actions/checkout@v3
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
