@@ -96,7 +96,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: teeho16/battery-ui
+          file: ./battery-ui/Dockerfile
+          tags: ${{ secrets.DOCKER_USERNAME }}/battery-ui
 
   streaming-service-docker:
   
@@ -121,7 +122,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: teeho16/streaming-service
+          file: ./streaming-service/Dockerfile
+          tags: ${{ secrets.DOCKER_USERNAME }}/streaming-service
 
   data-emulator-docker:
   
@@ -146,4 +148,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: teeho16/data-emulator
+          file: ./data-emulator/Dockerfile
+          tags: ${{ secrets.DOCKER_USERNAME }}/data-emulator
