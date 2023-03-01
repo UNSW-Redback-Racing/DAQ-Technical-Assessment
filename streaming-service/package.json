@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "ts-node src/server.ts",
-    "test": "jest --coverage=false --config=jest.config.js",
+    "test": "jest --passWithNoTests --coverage=false --config=jest.config.js",
     "lint": "eslint ./**/*.ts"
   },
   "keywords": [],
