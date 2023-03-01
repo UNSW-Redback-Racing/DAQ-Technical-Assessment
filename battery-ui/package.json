@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "lint": "eslint ./**/*.ts"
+    "lint": "eslint ./**/*.{ts,tsx}"
   },
   "eslintConfig": {
     "extends": [

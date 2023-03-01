@@ -22,7 +22,7 @@ function App() {
 
     socket.onmessage = (event) => {
       console.log("got message", event.data);
-      let message_obj = JSON.parse(event.data);
+      const message_obj = JSON.parse(event.data);
       setTemperature(message_obj["battery_temperature"].toPrecision(3));
     };
 

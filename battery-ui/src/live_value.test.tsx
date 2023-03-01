@@ -1,14 +1,14 @@
 import "@testing-library/jest-dom";
-import { act, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import LiveValue from "./live_value";
 
 describe("error color", () => {
 
-    const interval = 666;
+    // const interval = 666;
 
-    const sleep = (ms: number) => {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    // const sleep = (ms: number) => {
+    //     return new Promise(resolve => setTimeout(resolve, ms));
+    // }
 
     test("over 80 error", async () => {
         const { getByText } = render(<LiveValue temp={81} />);
