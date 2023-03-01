@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "ts-node": "^10.9.1",
     "ws": "^8.12.1"
   },
   "devDependencies": {
