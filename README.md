@@ -7,14 +7,14 @@ We also highly encourage you to read through the code and try to understand how 
 
 If there is a part you have attempted but cannot complete, then note down your approaches, thoughts and research in the [brainstorming.md](./brainstorming.md) file.
 
-If you have any questions/require clarification about the spec, direct them to the FAQs [page](https://docs.google.com/spreadsheets/d/1vl77OBlmlIJ3QawL0HUdfF573D8-kTrR7Xg4J3lh8Qg/edit?usp=sharing). 
+If you have any questions/require clarification about the spec, direct them to the FAQs [page](https://docs.google.com/spreadsheets/d/1vl77OBlmlIJ3QawL0HUdfF573D8-kTrR7Xg4J3lh8Qg/edit?usp=sharing) or feel free to use the [discord](https://discord.gg/fVErHVAapj). 
 
-### Submission Date: 02/03/2023
+### Submission Date: 09/09/2023 AT 10:00AM
 
 ### Submission Instructions:
 
 1. Fork the repository to your own Github account
-2. Send us a link to your repository at: https://forms.gle/ksECPdDX6rUixt388
+2. Send us a link to your repository [here](https://forms.office.com/r/kVNfKtkqCD)
 
 ## Live Battery Monitoring System
 
