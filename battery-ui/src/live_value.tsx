@@ -1,19 +1,24 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 interface TemperatureProps {
-  temp: number;
+    temp: number;
 }
 
-function LiveValue({ temp } : TemperatureProps) {
+function LiveValue({ temp }: TemperatureProps) {
+    let valueColour = "white";
 
-  let valueColour = 'white';
+    if (temp < 20) {
+        valueColour = "blue";
+    } else if (temp > 80) {
+        valueColour = "red";
+    }
 
-  return (
-      <header className="live-value" style={{ color : valueColour }}>
-        {`${temp.toString()}°C`}
-      </header>
-  );
+    return (
+        <header className="live-value" style={{ color: valueColour }}>
+            {`${temp.toString()}°C`}
+        </header>
+    );
 }
 
 export default LiveValue;
