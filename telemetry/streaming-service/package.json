@@ -7,8 +7,9 @@
     "ws": "^8.12.1"
   },
   "devDependencies": {
-    "@types/node": "^18.13.0",
+    "@types/node": "^18.19.7",
     "@types/ws": "^8.5.4",
+    "ts-node": "^10.9.2",
     "typescript": "^4.9.5"
   },
   "scripts": {

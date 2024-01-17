@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  data-emulator:
+    build: ./data-emulator
+    depends_on:
+      - streaming-service
+  streaming-service:
+    build: ./streaming-service
+    ports:
+      - "8080:8080"
+  ui:
+    build: ./ui
+    depends_on:
+      - streaming-service
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ui/src:/app/src:z
