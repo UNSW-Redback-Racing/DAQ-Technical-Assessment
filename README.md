@@ -34,30 +34,13 @@ Each theme has a corresponding directory. Please consult each respective `README
 
 ## Resources
 
-### Backend
-
-- https://nodejs.dev/learn
-- https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html
-- https://www.youtube.com/watch?v=ENrzD9HAZK4
-- https://www.youtube.com/watch?v=zQnBQ4tB3ZA
-
-### Frontend
-
-- https://reactjs.org/
-- https://react-typescript-cheatsheet.netlify.app/docs/basic/setup
-- https://reactjs.org/tutorial/tutorial.html
-- https://www.youtube.com/watch?v=hQAHSlTtcmY
-- https://www.youtube.com/watch?v=Tn6-PIqc4UM
+Please refer to the `README.md` files within each theme directory to find resources specific to the theme.
 
 ### Cloud CI/CD
 
 - https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
 - https://docs.docker.com/
 - https://www.youtube.com/watch?v=gAkwW2tuIqE
-
-### CAN/DBC
-
-- https://www.csselectronics.com/pages/can-dbc-file-database-intro
 
 ## Submission
 

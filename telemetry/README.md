@@ -12,6 +12,23 @@ It consists of three components:
 
   ![system-flow](./system-flow.svg)
 
+## Resources
+
+### Backend
+
+- https://nodejs.dev/learn
+- https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html
+- https://www.youtube.com/watch?v=ENrzD9HAZK4
+- https://www.youtube.com/watch?v=zQnBQ4tB3ZA
+
+### Frontend
+
+- https://reactjs.org/
+- https://react-typescript-cheatsheet.netlify.app/docs/basic/setup
+- https://reactjs.org/tutorial/tutorial.html
+- https://www.youtube.com/watch?v=hQAHSlTtcmY
+- https://www.youtube.com/watch?v=Tn6-PIqc4UM
+
 ## Tasks
 
 **You may NOT modify anything in the `data-emulator/` directory for any given task**
