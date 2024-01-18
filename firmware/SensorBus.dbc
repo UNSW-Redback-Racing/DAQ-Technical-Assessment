@@ -1,0 +1,175 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+VAL_TABLE_ GenericActive 1 "Inactive" 0 "Active" ;
+VAL_TABLE_ PedalSensitivity 2 "Throttle HIGH" 1 "Throttle MID" 0 "Throttle LOW" ;
+VAL_TABLE_ LaunchModeStatus 3 "Launch ACTIVE" 2 "Launch READY" 1 "Launch INACTIVE" 0 "Launch FAILED" ;
+
+
+BO_ 290 RearIMU_gyros: 8 Vector__XXX
+ SG_ RearIMUYaw : 31|16@0- (0.01,0) [0|0] "Deg/s" Vector__XXX
+ SG_ RearIMURoll : 15|16@0- (0.01,0) [0|0] "Deg/s" Vector__XXX
+ SG_ RearIMUPitch : 47|16@0- (0.01,0) [0|0] "Deg/s" Vector__XXX
+
+BO_ 369 RearIMU_gpsVelocity: 8 Vector__XXX
+ SG_ RearIMUGPSVelocityVz : 31|16@0- (0.01,0) [0|0] "" Vector__XXX
+ SG_ RearIMUGPSVelocityVy : 47|16@0- (0.01,0) [0|0] "" Vector__XXX
+ SG_ RearIMUGPSVelocityVx : 15|16@0- (0.01,0) [0|0] "" Vector__XXX
+
+BO_ 373 RearIMU_gpsPosition: 8 Vector__XXX
+ SG_ RearIMUGPSPositionZ : 31|16@0- (0.01,0) [0|0] "" Vector__XXX
+ SG_ RearIMUGPSPositionY : 47|16@0- (0.01,0) [0|0] "" Vector__XXX
+ SG_ RearIMUGPSPositionX : 15|16@0- (0.01,0) [0|0] "" Vector__XXX
+
+BO_ 293 RearIMU_velocitybody: 8 Vector__XXX
+ SG_ RearIMUVelocityBodyVbz : 31|16@0- (0.01,0) [0|0] "" Vector__XXX
+ SG_ RearIMUVelocityBodyVby : 47|16@0- (0.01,0) [0|0] "" Vector__XXX
+ SG_ RearIMUVelocityBodyVbx : 15|16@0- (0.01,0) [0|0] "" Vector__XXX
+
+BO_ 291 RearIMU_compass: 8 Vector__XXX
+ SG_ RearIMUCompassZ : 31|16@0- (0.01,0) [0|0] "" Vector__XXX
+ SG_ RearIMUCompassY : 47|16@0- (0.01,0) [-327.68|327.67] "" Vector__XXX
+ SG_ RearIMUCompassX : 15|16@0- (0.01,0) [0|0] "" Vector__XXX
+
+BO_ 292 RearIMU_velocity: 8 Vector__XXX
+ SG_ RearIMUVelocityVz : 31|16@0- (0.01,0) [0|0] "" Vector__XXX
+ SG_ RearIMUVelocityVy : 47|16@0- (0.01,0) [0|0] "" Vector__XXX
+ SG_ RearIMUVelocityVx : 15|16@0- (0.01,0) [0|0] "" Vector__XXX
+
+BO_ 289 RearIMU_acceleration: 8 Vector__XXX
+ SG_ RearIMUAccellZ : 31|16@0- (0.01,0) [0|0] "G" Vector__XXX
+ SG_ RearIMUAccellY : 47|16@0- (0.01,0) [0|0] "G" Vector__XXX
+ SG_ RearIMUAccellX : 15|16@0- (0.01,0) [0|0] "G" Vector__XXX
+
+BO_ 1803 ECU_DashboardParams: 1 Vector__XXX
+ SG_ RegenActive : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PedalSensitivity : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaunchModeStatus : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CruiseControlActive : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1802 ECU_CoolantTemp: 6 Vector__XXX
+ SG_ CoolantTempInverter : 0|16@1- (0.1,0) [0|0] "DegreesCelsius" Vector__XXX
+ SG_ CoolantTempFanOUT : 32|16@1- (0.1,0) [0|0] "DegreesCelsius" Vector__XXX
+ SG_ CoolantTempFanIN : 16|16@1- (0.1,0) [0|0] "DegreesCelsius" Vector__XXX
+
+BO_ 1801 ECU_CoolantPressure: 6 Vector__XXX
+ SG_ CoolantPressureFanOUT : 32|16@1- (0.1,0) [0|0] "kPa" Vector__XXX
+ SG_ CoolantPressureFanIN : 16|16@1- (0.1,0) [0|0] "kPa" Vector__XXX
+ SG_ CoolantInverterPressure : 0|16@1- (0.1,0) [0|0] "kPa" Vector__XXX
+
+BO_ 1800 ECU_BrakePressures: 4 Vector__XXX
+ SG_ BrakePressure_Rear : 16|16@1+ (0.1,0) [0|0] "MPa" Vector__XXX
+ SG_ BrakePressure_Front : 0|16@1+ (0.1,0) [0|0] "MPa" Vector__XXX
+
+BO_ 1799 ECU_Health_Laps: 8 Vector__XXX
+ SG_ IMD : 0|16@1- (0.1,0) [0|0] "ohms" Vector__XXX
+ SG_ LapBeacon : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BatteryVoltage : 16|8@1+ (0.1,0) [0|0] "volts" Vector__XXX
+
+BO_ 1798 ECU_Steering_Pedals: 6 Vector__XXX
+ SG_ SteeringAngle : 0|16@1- (0.1,0) [0|0] "Degrees" Vector__XXX
+ SG_ BPPS : 32|16@1- (1,0) [0|0] "Percent" Vector__XXX
+ SG_ APPS : 16|16@1- (1,0) [0|0] "Percent" Vector__XXX
+
+BO_ 1797 ECU_WheelSpeed: 8 Vector__XXX
+ SG_ WheelSpeedRR : 32|16@1- (0.1,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeedRL : 48|16@1- (0.1,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeedFR : 0|16@1- (0.1,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeedFL : 16|16@1- (0.1,0) [0|0] "km/h" Vector__XXX
+
+BO_ 1796 ECU_RearDampers_RearBrakes: 8 Vector__XXX
+ SG_ BrakeTemp_RR : 32|16@1- (0.1,0) [0|0] "Celsius" Vector__XXX
+ SG_ BrakeTemp_RL : 48|16@1- (0.1,0) [0|0] "Celsius" Vector__XXX
+ SG_ DamperTravel_RR : 0|16@1- (0.01,0) [0|0] "mm" Vector__XXX
+ SG_ DamperTravel_RL : 16|16@1- (0.01,0) [0|0] "mm" Vector__XXX
+
+BO_ 1697 TyreTempRL: 8 Vector__XXX
+ SG_ TyreTempRL8 : 48|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRL6 : 32|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRL3 : 16|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRL1 : 0|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+
+BO_ 1696 TyreTempRR: 8 Vector__XXX
+ SG_ TyreTempRR8 : 48|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRR6 : 32|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRR3 : 16|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRR1 : 0|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+
+BO_ 1554 FrontIMU_compass: 6 Vector__XXX
+ SG_ FrontIMU_compass_z : 32|16@1- (0.001,0) [0|0] "gauss" Vector__XXX
+ SG_ FrontIMU_compass_y : 16|16@1- (0.001,0) [0|0] "gauss" Vector__XXX
+ SG_ FrontIMU_compass_x : 0|16@1- (0.001,0) [0|0] "gauss" Vector__XXX
+
+BO_ 1553 FrontIMU_gyros: 6 Vector__XXX
+ SG_ FrontIMU_gyros_z : 32|16@1- (0.1,0) [0|0] "deg/s" Vector__XXX
+ SG_ FrontIMU_gyros_y : 16|16@1- (0.1,0) [0|0] "deg/s" Vector__XXX
+ SG_ FrontIMU_gyros_x : 0|16@1- (0.1,0) [0|0] "deg/s" Vector__XXX
+
+BO_ 1552 FrontIMU_acceleration: 6 Vector__XXX
+ SG_ FrontIMU_acc_z : 32|16@1- (0.001,0) [-32768|32767] "g" Vector__XXX
+ SG_ FrontIMU_acc_y : 16|16@1- (0.001,0) [-32768|32767] "g" Vector__XXX
+ SG_ FrontIMU_acc_x : 0|16@1- (0.001,0) [-32.768|32.767] "g" Vector__XXX
+
+BO_ 1683 CANNODE_TyreTempFL: 8 Vector__XXX
+ SG_ TyreTempFL8 : 55|16@0- (0.01,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempFL6 : 39|16@0- (0.01,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempFL3 : 23|16@0- (0.01,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempFL1 : 7|16@0- (0.01,0) [0|0] "Degrees Celsius" Vector__XXX
+
+BO_ 1682 CANNODE_TyreTempFR: 8 Vector__XXX
+ SG_ TyreTempFR1 : 7|16@0- (0.01,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempFR8 : 55|16@0- (0.01,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempFR6 : 39|16@0- (0.01,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempFR3 : 23|16@0- (0.01,0) [0|0] "Degrees Celsius" Vector__XXX
+
+BO_ 1681 CANNODE_BrakeTemps: 4 Vector__XXX
+ SG_ BrakeTempFR : 23|16@0+ (1,0) [0|0] "Volts" Vector__XXX
+ SG_ BrakeTempFL : 7|16@0+ (1,0) [0|0] "Volts" Vector__XXX
+
+BO_ 1680 CANNODE_DamperPots: 4 Vector__XXX
+ SG_ DamperPotFR : 23|16@0+ (0.01,0) [0|5] "Volts" Vector__XXX
+ SG_ DamperPotFL : 7|16@0+ (0.01,0) [0|5] "Volts" Vector__XXX
+
+
+
+BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "MultiplexExtEnabled" "No";
+BA_DEF_DEF_  "BusType" "CAN";
+VAL_ 1803 RegenActive 1 "Inactive" 0 "Active" ;
+VAL_ 1803 PedalSensitivity 2 "Throttle HIGH" 1 "Throttle MID" 0 "Throttle LOW" ;
+VAL_ 1803 LaunchModeStatus 3 "Launch ACTIVE" 2 "Launch READY" 1 "Launch INACTIVE" 0 "Launch FAILED" ;
+VAL_ 1803 CruiseControlActive 1 "Inactive" 0 "Active" ;
