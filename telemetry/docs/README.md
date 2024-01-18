@@ -29,6 +29,39 @@ It consists of three components:
 - https://www.youtube.com/watch?v=hQAHSlTtcmY
 - https://www.youtube.com/watch?v=Tn6-PIqc4UM
 
+## Setup
+
+**This step is optional but recommended.**
+
+Although Docker is used to run the telemetry services for ease of development, when developing the codebase locally within an IDE, you may find that static analysis tools will not be available. To resolve this, you have to install the project node packages locally so that your IDE can analyse your code correctly. If this doesn't significantly impact your development, you may skip this step.
+
+To do this:
+
+- Install [Node Version Manager](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating) (`nvm`)
+
+- Install and use Node v18.14.0 via `nvm`
+
+  ```bash
+  nvm install 18.14.0   # installs Node v18.14.0
+  nvm use 18.14.0       # selects Node v18.14.0 for use
+  ```
+
+- Install node packages for `data-emulator/`
+  ```bash
+  cd data-emulator; npm install
+  ```
+- Install node packages for `streaming-service/`
+  ```bash
+  cd streaming-service; npm install
+  ```
+- Install node packages for `ui/`
+
+  ```bash
+  cd ui; npm install
+  ```
+
+  Static analysis tools should work now given the above steps. To run the system as a whole, open a terminal within the `telemetry/` directory and execute `docker compose up`.
+
 ## Tasks
 
 **You may NOT modify anything in the `data-emulator/` directory for any given task**
