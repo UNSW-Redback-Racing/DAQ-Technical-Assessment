@@ -30,11 +30,11 @@ This technical assessment consists of 3 themes.
 
 While we expect you to reasonably attempt all parts, we understand that some themes may have differing scopes relative to each other.
 
-Each theme has a corresponding directory. Please consult each respective `README.md` within each directory for specific task instructions.
+Each theme has a corresponding directory. Please consult each respective `docs/README.md` file within each directory for specific task instructions.
 
 ## Resources
 
-Please refer to the `README.md` files within each theme directory to find resources specific to the theme.
+Please refer to the `docs/README.md` file within each theme directory to find resources specific to the theme.
 
 ### Cloud CI/CD
 
