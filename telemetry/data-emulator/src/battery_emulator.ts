@@ -31,6 +31,9 @@ function generate_and_send_battery_data() {
 
   if (!(tcpClient.destroyed || tcpClient.closed)) {
     let json_string = JSON.stringify(data);
+    if (error_flag === 3) {
+      json_string += "}";
+    }
     tcpClient.write(json_string);
   } else {
     console.log("connection to server closed");
