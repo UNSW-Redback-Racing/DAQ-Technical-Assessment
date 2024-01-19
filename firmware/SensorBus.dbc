@@ -35,11 +35,6 @@ BS_:
 
 BU_:
 
-BO_ 1798 ECU_Steering_Pedals: 6 Vector__XXX
- SG_ SteeringAngle : 0|16@1- (0.1,0) [0|0] "Degrees" Vector__XXX
- SG_ BPPS : 32|16@1- (1,0) [0|0] "Percent" Vector__XXX
- SG_ APPS : 16|16@1- (1,0) [0|0] "Percent" Vector__XXX
-
 BO_ 1797 ECU_WheelSpeed: 8 Vector__XXX
  SG_ WheelSpeedRR : 32|16@1- (0.1,0) [0|0] "km/h" Vector__XXX
  SG_ WheelSpeedRL : 48|16@1- (0.1,0) [0|0] "km/h" Vector__XXX
