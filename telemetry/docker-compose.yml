@@ -9,6 +9,8 @@ services:
     build: ./streaming-service
     ports:
       - "8080:8080"
+    volumes:
+      - ./streaming-service/src:/app/src:z
   ui:
     build: ./ui
     depends_on:
