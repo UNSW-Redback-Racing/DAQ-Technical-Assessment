@@ -91,3 +91,8 @@ docker compose up
 ```
 
 To see the UI, go to [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Additional Notes
+
+- If you happen to install any new packages, you will need to run `docker compose up --build`.
+  - To simplify, the reason for this is because the telemetry system runs in a containerised environment where the packages are only installed upon the containers first build. So once the containers are created (with `docker compose up`), should there be any package changes, the containers must be rebuilt (denoted by the `--build` flag) for the new packages to be installed.
