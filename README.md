@@ -40,4 +40,4 @@ Please refer to the `docs/README.md` file within each theme directory to find re
 
 ## Submission
 
-Complete the submission form [here](https://forms.office.com/r/q4W1DqCj2n)
+Complete the submission form [here](https://forms.office.com/r/MCqDaKu3c5)
