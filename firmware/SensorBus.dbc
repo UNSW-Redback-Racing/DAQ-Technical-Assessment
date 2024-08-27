@@ -36,10 +36,10 @@ BS_:
 BU_:
 
 BO_ 1797 ECU_WheelSpeed: 8 Vector__XXX
- SG_ WheelSpeedRR : 32|16@0+ (0.1,0) [0|0] "km/h" Vector__XXX
- SG_ WheelSpeedRL : 48|16@0+ (0.1,0) [0|0] "km/h" Vector__XXX
- SG_ WheelSpeedFR : 0|16@0+ (0.1,0) [0|0] "km/h" Vector__XXX
- SG_ WheelSpeedFL : 16|16@0+ (0.1,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeedRR : 32|16@1+ (0.1,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeedRL : 48|16@1+ (0.1,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeedFR : 0|16@1+ (0.1,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeedFL : 16|16@1+ (0.1,0) [0|0] "km/h" Vector__XXX
 
 
 BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
