@@ -23,11 +23,9 @@ It consists of three components:
 
 ### Frontend
 
-- https://reactjs.org/
-- https://react-typescript-cheatsheet.netlify.app/docs/basic/setup
-- https://reactjs.org/tutorial/tutorial.html
-- https://www.youtube.com/watch?v=hQAHSlTtcmY
-- https://www.youtube.com/watch?v=Tn6-PIqc4UM
+- https://ui.shadcn.com/docs
+- https://nextjs.org/docs
+- https://tailwindcss.com/
 
 ## Setup
 
@@ -64,7 +62,9 @@ To do this:
 
 ## Tasks
 
-**You may NOT modify anything in the `data-emulator/` directory for any given task**
+**You may NOT modify anything in the `data-emulator/` directory for any given task.**
+
+**Additionally, it is assumed that your solution to each answer is justified within the `brainstorming.md` file. You may write as much content as you see fit for each question.**
 
 1. When running the emulator, the streaming service will occasionally crash. Think about where and why this crash is happening, and add something to the code to better handle this issue.
 
@@ -72,7 +72,7 @@ To do this:
 
 2. A safe operating range for the battery temperature is 20-80 degrees. Add a feature to the backend `streaming-service` so that each time the received battery temperature exceeds this range more than 3 times in 5 seconds, the current timestamp and a simple error message is printed to console.
 
-3. The ReactJS frontend is currently very basic. Extend the frontend by:
+3. The NextJS frontend is currently very basic. **Using primarily tailwindCSS and Shadcn/ui components**, extend the frontend by:
 
 - Making the battery temperature value change colours based on the current temperature (e.g. changing to red when the safe temperature range is exceeded).
   - Safe operating ranges are defined below
@@ -81,7 +81,10 @@ To do this:
     | Safe (20-80) | Green |
     | Nearing unsafe (20-25 or 75-80) | Yellow |
     | Unsafe (<20 or >80) | Red |
-- Making the frontend more aesthetically pleasing, however you see fit.
+  - You may extend globals.css and tailwind.config.js where you see fit to implement these colours, or can elect to use another method (although the former is preferred).
+- Create three additional functionalities for telemetry. These should be visible UI changes that reflect an additional feature. E.g. light-mode toggle, graph, error messages interface etc.
+  - To implement these, you may alter the streaming service payload if necessary.
+  - You may use components other than those mentioned above if they can be justified in your `brainstorming.md` file. E.g. additional charting libraries, notifications (toast) libraries etc.
 
 To start the telemetry system:
 
