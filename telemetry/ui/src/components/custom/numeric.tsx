@@ -1,14 +1,14 @@
 interface TemperatureProps {
-  temp: number;
+  temp: any;
 }
 
 /**
- * LiveValue component that displays the temperature value.
+ * Numeric component that displays the temperature value.
  * 
  * @param {number} props.temp - The temperature value to be displayed.
- * @returns {JSX.Element} The rendered LiveValue component.
+ * @returns {JSX.Element} The rendered Numeric component.
  */
-function LiveValue({ temp }: TemperatureProps) {
+function Numeric({ temp }: TemperatureProps) {
   // TODO: Change the color of the text based on the temperature
   // HINT:
   //  - Consider using cn() from the utils folder for conditional tailwind styling
@@ -19,9 +19,9 @@ function LiveValue({ temp }: TemperatureProps) {
 
   return (
     <div className="text-foreground text-4xl font-bold">
-      {`${temp.toPrecision(3)}°C`}
+      {`${temp}°C`}
     </div>
   );
 }
 
-export default LiveValue;
+export default Numeric;

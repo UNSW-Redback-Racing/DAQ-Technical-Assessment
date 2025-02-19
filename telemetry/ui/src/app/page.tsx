@@ -7,7 +7,7 @@ import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Thermometer } from "lucide-react"
-import LiveValue from "../components/custom/live-value"
+import Numeric from "../components/custom/numeric"
 import RedbackLogoDarkMode from "../../public/logo-darkmode.svg"
 import RedbackLogoLightMode from "../../public/logo-lightmode.svg"
 
@@ -26,7 +26,7 @@ interface VehicleData {
  */
 export default function Page(): JSX.Element {
   const { setTheme } = useTheme()
-  const [temperature, setTemperature] = useState<number>(0)
+  const [temperature, setTemperature] = useState<any>(0)
   const [connectionStatus, setConnectionStatus] = useState<string>("Disconnected")
   const { lastJsonMessage, readyState }: { lastJsonMessage: VehicleData | null; readyState: ReadyState } = useWebSocket(
     WS_URL,
@@ -56,7 +56,7 @@ export default function Page(): JSX.Element {
         setConnectionStatus("Disconnected")
         break
     }
-  }, [readyState])
+  }, [])
 
   /**
    * Effect hook to handle incoming WebSocket messages.
@@ -98,7 +98,7 @@ export default function Page(): JSX.Element {
             </CardTitle>
           </CardHeader>
           <CardContent className="flex items-center justify-center">
-            <LiveValue temp={temperature} />
+            <Numeric temp={temperature} />
           </CardContent>
         </Card>
       </main>

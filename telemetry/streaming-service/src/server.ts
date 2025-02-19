@@ -2,7 +2,7 @@ import net from "net";
 import { WebSocket, WebSocketServer } from "ws";
 
 interface VehicleData {
-  battery_temperature: number;
+  battery_temperature: number | string;
   timestamp: number;
 }
 
@@ -15,14 +15,14 @@ tcpServer.on("connection", (socket) => {
   console.log("TCP client connected");
 
   socket.on("data", (msg) => {
-    console.log(`Received: ${msg.toString()}`);
+    const message: string = msg.toString();
 
-    const jsonData: VehicleData = JSON.parse(msg.toString());
-
+    console.log(`Received: ${message}`);
+    
     // Send JSON over WS to frontend clients
     websocketServer.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {
-        client.send(msg.toString());
+        client.send(message);
       }
     });
   });

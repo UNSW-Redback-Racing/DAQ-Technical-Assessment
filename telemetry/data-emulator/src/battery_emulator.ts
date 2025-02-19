@@ -1,3 +1,4 @@
+// battery_emulator.ts
 import net from "net";
 import { exit } from "process";
 
@@ -6,34 +7,29 @@ const HOST = "streaming-service";
 const PORT = 12000;
 
 const MILLISECONDS = 500;
-const ERROR_CHANCE = 15;
+const IN_RANGE_PROBABILITY = 0.7;
+const BINARY_PROBABILITY = 0.2;
 
 function generate_and_send_battery_data() {
-  let generated_value: number = 0;
-  let error_flag = getRandomIntInclusive(1, ERROR_CHANCE);
+  let generated_value: number;
 
-  switch (error_flag) {
-    case 1:
-      generated_value = getRandomIntInclusive(82, 1000); // out of range
-      break;
-    case 2:
-      generated_value = getRandomIntInclusive(0, 20); // out of range
-      break;
-    default:
-      generated_value = getRandomIntInclusive(20, 80) + Math.random();
-      break;
+  if (Math.random() < IN_RANGE_PROBABILITY) {
+    generated_value = getRandomIntInclusive(20, 80) + Math.random();
+  } else {
+    generated_value = Math.random() < 0.5
+      ? getRandomIntInclusive(0, 20)
+      : getRandomIntInclusive(82, 1000);
   }
 
   let data = {
-    battery_temperature: generated_value,
+    battery_temperature: Math.random() < BINARY_PROBABILITY 
+      ? Buffer.from(new Uint32Array([generated_value]).buffer).toString('binary')
+      : generated_value,
     timestamp: Date.now(),
   };
 
   if (!(tcpClient.destroyed || tcpClient.closed)) {
     let json_string = JSON.stringify(data);
-    if (error_flag === 3) {
-      json_string += "}";
-    }
     tcpClient.write(json_string);
   } else {
     console.log("connection to server closed");
@@ -44,7 +40,7 @@ function generate_and_send_battery_data() {
 function getRandomIntInclusive(min: number, max: number) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 tcpClient.connect(PORT, HOST, function () {
