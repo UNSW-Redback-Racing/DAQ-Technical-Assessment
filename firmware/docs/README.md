@@ -77,7 +77,7 @@ These sensor definitions allows the raw CAN data to be interpreted into human fr
 
 ## Tasks
 
-You are provided with **three** files:
+You are provided with **four** files:
 
 - `dump.log`
   - A **CAN dump** file containing CAN data.
