@@ -1,0 +1,282 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+VAL_TABLE_ Board_ID_2 7 "Board 6" 5 "Board 4" 3 "Board 8" 1 "Board 2" ;
+VAL_TABLE_ Board_ID_1 6 "Board 7" 4 "Board 5" 2 "Board 3" 0 "Board 1" ;
+
+
+BO_ 1808 SteeringWheelButtons: 6 Vector__XXX
+ SG_ Button7_hold_time : 16|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button6_hold_time : 20|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button5_hold_time : 24|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button4_hold_time : 28|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button3_hold_time : 32|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button2_hold_time : 36|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button1_hold_time : 40|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button7 : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button6 : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button5 : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button4 : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button3 : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button2 : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button1 : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button7_hold : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button6_hold : 9|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button5_hold : 10|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button4_hold : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button3_hold : 12|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button2_hold : 13|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button1_hold : 14|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1801 PDM_BoardStates: 2 Vector__XXX
+ SG_ Board8Ch2_On : 15|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board7Ch2_On : 14|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board6Ch2_On : 13|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board5Ch2_On : 12|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board4Ch2_On : 11|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board3Ch2_On : 10|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board2Ch2_On : 9|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board1Ch2_On : 8|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board8Ch1_On : 7|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board7Ch1_On : 6|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board6Ch1_On : 5|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board5Ch1_On : 4|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board4Ch1_On : 3|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board3Ch1_On : 2|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board2Ch1_On : 1|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board1Ch1_On : 0|1@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1800 PDM_CAN_TX_8: 6 Vector__XXX
+ SG_ Board8_Temp : 32|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board8_Current2 : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board8_Current1 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1799 PDM_CAN_TX_7: 6 Vector__XXX
+ SG_ Board7_Temp : 32|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board7_Current2 : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board7_Current1 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1798 PDM_CAN_TX_6: 6 Vector__XXX
+ SG_ Board6_Temp : 32|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board6_Current2 : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board6_Current1 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1797 PDM_CAN_TX_5: 6 Vector__XXX
+ SG_ Board5_Temp : 32|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board5_Current2 : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board5_Current1 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1796 PDM_CAN_TX_4: 6 Vector__XXX
+ SG_ Board4_Temp : 32|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board4_Current2 : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board4_Current1 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1795 PDM_CAN_TX_3: 6 Vector__XXX
+ SG_ Board3_Temp : 32|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board3_Current2 : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board3_Current1 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1794 PDM_CAN_TX_2: 6 Vector__XXX
+ SG_ Board2_Temp : 32|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board2_Current2 : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board2_Current1 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1793 PDM_CAN_TX_1: 6 Vector__XXX
+ SG_ Board1_Temp : 32|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board1_Current2 : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board1_Current1 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1792 PDM_CAN_RX: 1 Vector__XXX
+ SG_ BatteryCharged : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AccuFansEnable : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RadsFansEnable : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SDCEnable : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pump2Enable : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pump1Enable : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1298 JETSON_TX_INFO: 6 Vector__XXX
+ SG_ Heartbeat : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Ready : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Mission_Finish : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Mission_Selected : 3|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Speed_Target : 8|16@1+ (0.1,0) [0|0] "m/s" Vector__XXX
+ SG_ Lap_Count : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Cones_Count_Actual : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Cones_Count_all : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1299 JETSON_TX_CONTROL: 7 Vector__XXX
+ SG_ Acceleration_Target : 0|16@1- (1,0) [0|100] "m/s^2" Vector__XXX
+ SG_ Steering_Target : 16|16@1- (0.1,0) [-180|180] "Degrees" Vector__XXX
+ SG_ Torque_Target : 32|16@1- (0.01,0) [0|180] "Nm" Vector__XXX
+ SG_ Hold_Bit : 48|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1809 RES_POWER_ON: 1 Vector__XXX
+ SG_ Power_On : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 401 RES_PDO: 8 Vector__XXX
+ SG_ E_Stop_1 : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Switch : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ E_Stop_2 : 31|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Radio_Strength : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 0 RES_ACTIVATE: 1 Vector__XXX
+ SG_ Activate_RES : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1312 AMI_TX: 1 Vector__XXX
+ SG_ Selected_Mission : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1300 JETSON_RX_STATES: 1 Vector__XXX
+ SG_ Tractive_State : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ASMS_State : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AS_State : 2|3@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1313 BRAKE_CONTROL_RX: 5 Vector__XXX
+ SG_ Acceleration_Target : 0|16@1- (0.001,0) [0|100] "m/s^2" Vector__XXX
+ SG_ Brake_Pressure : 16|16@1+ (0.1,0) [0|0] "MPa" Vector__XXX
+ SG_ Hold_Bit : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1315 STEERING_CONTROL_RX_1: 5 Vector__XXX
+ SG_ Steering_Angle : 0|16@1- (0.1,0) [-180|180] "Degrees" Vector__XXX
+ SG_ Steering_Target : 16|16@1- (0.1,0) [-180|180] "Degrees" Vector__XXX
+ SG_ Enable_Steering : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ On_Stands : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1317 STEERING_CONTROL_RX_2: 6 Vector__XXX
+ SG_ PID_P : 0|16@1+ (0.01,0) [0|0] "" Vector__XXX
+ SG_ PID_I : 16|16@1+ (0.01,0) [0|0] "" Vector__XXX
+ SG_ PID_D : 32|16@1+ (0.01,0) [0|0] "" Vector__XXX
+
+BO_ 1314 BRAKE_CONTROL_TX: 7 Vector__XXX
+ SG_ Heartbeat : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Ready : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Actuator_Press_1 : 8|16@1+ (1,0) [0|0] "PSI" Vector__XXX
+ SG_ Actuator_Press_2 : 24|16@1+ (1,0) [0|0] "PSI" Vector__XXX
+ SG_ Transducer_Press : 40|16@1+ (1,0) [0|0] "PSI" Vector__XXX
+
+BO_ 1316 STEERING_CONTROL_TX: 5 Vector__XXX
+ SG_ Heartbeat : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Ready : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Steering_Actual : 8|16@1- (0.1,0) [-180|180] "Degrees" Vector__XXX
+ SG_ PID_Output : 24|16@1- (1,0) [-255|255] "" Vector__XXX
+
+BO_ 1280 DV_DRIVING_DYNAMICS_1: 8 Vector__XXX
+ SG_ Speed_actual : 0|8@1+ (1,0) [0|0] "km/h" Vector__XXX
+ SG_ Speed_target : 8|8@1+ (1,0) [0|0] "km/h" Vector__XXX
+ SG_ Steering_angle_actual : 16|8@1- (0.5,0) [0|0] "Degrees" Vector__XXX
+ SG_ Steering_angle_target : 24|8@1- (0.5,0) [0|0] "Degrees" Vector__XXX
+ SG_ Brake_hydr_actual : 32|8@1+ (1,0) [0|0] "Percent" Vector__XXX
+ SG_ Brake_hydr_target : 40|8@1+ (1,0) [0|0] "Percent" Vector__XXX
+ SG_ Motor_moment_actual : 48|8@1- (1,0) [0|0] "Percent" Vector__XXX
+ SG_ Motor_moment_target : 56|8@1- (1,0) [0|0] "Percent" Vector__XXX
+
+BO_ 1281 DV_DRIVING_DYNAMICS_2: 6 Vector__XXX
+ SG_ Acceleration_longitudinal : 0|16@1- (0.001953125,0) [0|0] "m/s^2" Vector__XXX
+ SG_ Acceleration_lateral : 16|16@1- (0.001953125,0) [0|0] "m/s^2" Vector__XXX
+ SG_ Yaw_rate : 32|16@1- (0.0078125,0) [0|0] "m/s^2" Vector__XXX
+
+BO_ 1282 DV_SYSTEM_STATUS: 5 Vector__XXX
+ SG_ AS_State : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ EBS_State : 3|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AMI_State : 5|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Steering_State : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ASB_State : 9|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Lap_Counter : 11|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Cones_count_actual : 15|6@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Cones_count_all : 23|17@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1301 JETSON_RX_WSS: 8 Vector__XXX
+ SG_ WSS_FL : 0|16@1+ (0.1,0) [0|0] "m/s" Vector__XXX
+ SG_ WSS_FR : 16|16@1+ (0.1,0) [0|0] "m/s" Vector__XXX
+ SG_ WSS_RL : 32|16@1+ (0.1,0) [0|0] "m/s" Vector__XXX
+ SG_ WSS_RR : 48|16@1+ (0.1,0) [0|0] "m/s" Vector__XXX
+
+BO_ 1811 AVDebugDisplay_1: 7 Vector__XXX
+ SG_ RES_CONN_CAN : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ JETSON_CONN_CAN : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ JETSON_LIDAR_DATA_CONN : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ JETSON_CAMERA_DATA_CONN : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ SBG_CONN : 5|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ JETSON_IP : 6|32@1+ (1,0) [0|255255255255] "" Vector__XXX
+ SG_ JETSON_CPU_TEMP : 38|7@1+ (1,0) [0|128] "Celsius" Vector__XXX
+ SG_ JETSON_GPU_TEMP : 45|7@1+ (1,0) [0|128] "Celsius" Vector__XXX
+ SG_ RES_POWER : 52|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1812 AVDebugDisplay_2: 7 Vector__XXX
+ SG_ JETSON_POWER_CONSUMPTION : 0|7@1+ (1,0) [0|128] "Watt" Vector__XXX
+ SG_ JETSON_POWER_MODE : 7|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ AV_STARTUP_STATUS : 9|4@1+ (1,0) [0|9] "" Vector__XXX
+ SG_ SBG_SOLN_STATUS : 13|3@1+ (1,0) [0|8] "" Vector__XXX
+ SG_ AS_STATE_ROS : 16|3@1+ (1,0) [0|8] "" Vector__XXX
+ SG_ AS_MISSION_ROS : 19|3@1+ (1,0) [0|8] "" Vector__XXX
+ SG_ STANLEY_STATUS : 22|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ PURE_PURSUIT_STATUS : 26|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ LIDAR_NODE_STATUS : 30|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ CAMERA_NODE_STATUS : 31|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ SENSOR_FUSION_STATUS : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LIDAR_DRIVER_STATUS : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ CAMERA_DRIVER_STATUS : 34|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ WAYPOINT_NODE_STATUS : 35|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ SLAM_STATUS : 39|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ STATE_ESTIMATOR_STATUS : 43|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ MISSION_CONTROLLER_STATUS : 47|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ BRAKE_HOLD : 51|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1813 AVDebugDisplay_3: 8 Vector__XXX
+ SG_ LONGITUDE : 0|16@1- (0.01,0) [0|0] "degree" Vector__XXX
+ SG_ LATITUDE : 16|16@1- (0.01,0) [0|0] "degree" Vector__XXX
+ SG_ SBG_ACC_X : 32|16@1- (0.01,0) [0|0] "cm" Vector__XXX
+ SG_ SBG_ACC_Y : 48|16@1- (0.01,0) [0|0] "cm" Vector__XXX
+
+BO_ 1814 AVDebugDisplay_4: 8 Vector__XXX
+ SG_ STEERING_REQ_ROS : 0|16@1- (0.01,0) [0|0] "degree" Vector__XXX
+ SG_ STEERING_ACTUAL : 48|16@1- (0.01,0) [0|0] "degree" Vector__XXX
+ SG_ TORQUE_REQ_ROS : 16|16@1- (0.01,0) [0|0] "N/m" Vector__XXX
+ SG_ VELOCITY_REQ_ROS : 32|16@1- (0.01,0) [0|0] "m/s" Vector__XXX
+
+BO_ 1815 AVDebugDisplay_5: 8 Vector__XXX
+ SG_ TORQUE_ACTUAL : 16|16@1- (0.01,0) [0|0] "N/m" Vector__XXX
+ SG_ VELOCITY_ACTUAL : 0|16@1- (0.01,0) [0|0] "m/s" Vector__XXX
+ SG_ ACCEL_ACTUAL : 32|16@1- (0.01,0) [0|0] "m/s^2" Vector__XXX
+ SG_ ACCEL_REQ_ROS : 48|16@1- (0.01,0) [0|0] "m/s^2" Vector__XXX
+
+
+
+BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "MultiplexExtEnabled" "No";
+BA_DEF_DEF_  "BusType" "CAN";
+

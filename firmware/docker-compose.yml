@@ -1,0 +1,11 @@
+services:
+    firmware:
+        platform: linux/amd64
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        tty: true
+        # volumes:
+        #     - .:/app
+        privileged: true
+            
