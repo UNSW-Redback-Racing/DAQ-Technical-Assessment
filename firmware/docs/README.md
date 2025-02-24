@@ -34,7 +34,7 @@ Below is the breakdown of a CAN FD frame.
 
 ### What is it?
 
-DBC files is a text file that defines the structure of CAN frames. They can be used to encode the data into a CAN frame or decode the data from a frame.
+DBC files are text files which define the structure of CAN frames. They can be used to encode the data into a CAN frame or decode the data from a frame.
 
 ![dbc_breakdown](dbc_breakdown.png)
 
@@ -104,9 +104,13 @@ Using **dbcppp** (a DBC file parsing library), parse the `dump.log` file and ext
 **Your solution must use `dbcppp` for parsing the DBC files. Manually writing your own parsing logic is not allowed as it will be tested in a later stage.**
 
 #### **Task Breakdown:**
-1. Extract the **timestamp**, **frame ID**, and **data bytes** from `dump.log`.
-2. Use **dbcppp** to parse the three DBC files.
-3. Decode all CAN frames from `dump.log` according to their corresponding DBC definitions to the correct output.
+1. Setup **dbcppp** in your project. General steps:
+     - Adding the library as a submodule 
+     - Modify `CMakeLists.txt` to link library
+     - Update Docker Instructions to support dbcppp
+2. Extract the **timestamp**, **frame ID**, and **data bytes** from `dump.log`.
+3. Use **dbcppp** to parse the three DBC files.
+4. Decode all CAN frames from `dump.log` according to their corresponding DBC definitions to the correct output.
 5. Generate your output to a file called **`output.txt`**. Ensure it matches the convention below.
 
 
@@ -136,7 +140,7 @@ A `Dockerfile`, `main.cpp`, and `CMakeLists.txt` have been provided in the `solu
 
 ### Cmake
 - A basic **CMake** setup is provided to assist in building the solution. Update as neccessary.
-  - **CMake is optional** but recommended for better build management.  
+  - **CMake is highly recommended** for better build management.  
   - To build using CMake:
     ```
     cd build
@@ -189,18 +193,38 @@ For the easiest setup on Windows, use Windows Subsystem for Linux (WSL) with Doc
 
 ### Important Notes
   
-  - You are allowed to use ChatGPT but please mention it's usage in the `brainstorming.md`. ChatGPT may hallucinate correct code however. Becareful and understand the DBC spec.
-  - Be aware that,
-    ```
-    Multiple DBC files may define the same CAN ID, so handle this case correctly. The autotest will fail if not handled.
+  - You are allowed to use ChatGPT but please mention it's usage in the `brainstorming.md`. ChatGPT may hallucinate correct code however. Be careful and understand the DBC spec.
+  - Be aware that multiple DBC files **may define the same CAN ID**, so handle this case correctly.
   - **Feel free to ask any questions in the Redback Discord! Ask much as you need.**
 
 ## Stage 2
 
-Answer theoretical questions about CAN hardware and Software in `answer.txt`.
+Answer the following theoretical questions in `answer.txt`.
 
-1. What are advantages and disadvantages of CAN over other protocols such as USB, PCIE, SPI etc? List reasons of why Redback Racing's Embedded Systems, Powertrain, DAQ and Autonomous Vehicles(AV) departments would use CAN?
-   Hint: CAN has a lot of desirable properties
+### CAN 
+
+1. What are the advantages and disadvantages of the CAN protocol compared to other protocols such as USB, PCIE, SPI etc? 
+
+2. Why would Redback Racing's Embedded Systems, Powertrain, DAQ (Data Acquisition), and Autonomous Vehicles (AV) departments specifically choose CAN over other protocols? 
+### STM32 Chip Selection
+ STM32 is a family of widely used MCUs, that can be programmed in **C**, similar to an Arduino. 
+ For this year's DAQ firmware, we are using STM32-based computing for our hardware. A critical design step in any production process is selecting the appropriate **STM32 chip** that meets the project's requirements. More information on STM32 MCUs can be found [here](https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html).  
+
+### Task
+- Using [STM32 MCU product selector](https://www.st.com/content/st_com/en/stm32-mcu-product-selector.html), find a chip with: 
+  1. 3 CAN buses, 
+  2. ethernet support, 
+  3. at least 3 A/D converters, 
+  4. USB support, 
+  5. 12 16bit timers,
+  6. flash size of 2048kB. 
+
+* Which STM32 chip have you selected? **Provide justification** for your selection
+  - Does this chip exceed the minimum requirements, or does it just meet them?
+  - What are its power requirements?  
+  - What are its physical dimensions?  
+  - What is the cost of the chip?  
+  - **(Optional)** If you have experience with STM32 chips, would you modify any of the given requirements?  
 
 ## **Stage 3: Implement Unit Tests**
 
