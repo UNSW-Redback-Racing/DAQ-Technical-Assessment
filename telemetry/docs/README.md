@@ -23,11 +23,9 @@ It consists of three components:
 
 ### Frontend
 
-- https://reactjs.org/
-- https://react-typescript-cheatsheet.netlify.app/docs/basic/setup
-- https://reactjs.org/tutorial/tutorial.html
-- https://www.youtube.com/watch?v=hQAHSlTtcmY
-- https://www.youtube.com/watch?v=Tn6-PIqc4UM
+- https://ui.shadcn.com/docs
+- https://nextjs.org/docs
+- https://tailwindcss.com/
 
 ## Setup
 
@@ -64,24 +62,37 @@ To do this:
 
 ## Tasks
 
-**You may NOT modify anything in the `data-emulator/` directory for any given task**
+**You may NOT modify anything in the `data-emulator/` directory for any given task.**
 
-1. When running the emulator, the streaming service will occasionally crash. Think about where and why this crash is happening, and add something to the code to better handle this issue.
+**Additionally, it is assumed that your solution to each answer is justified within the `brainstorming.md` file. You may write as much content as you see fit for each question.**
 
-   - You may have to run this for up to ~30 seconds before the crash happens
+1. When running the emulator, the client will occasionally recieve values in the incorrect format. This will be visible in the output of `streaming service` as well as the `UI`. Think about what is happening, and write additional code in `streaming service` that prevents 'invalid' data from being sent to the frontend. What you wish to do with 'invalid' data is up to you, so long as it is justified in `brainstorming.md`.
 
 2. A safe operating range for the battery temperature is 20-80 degrees. Add a feature to the backend `streaming-service` so that each time the received battery temperature exceeds this range more than 3 times in 5 seconds, the current timestamp and a simple error message is printed to console.
 
-3. The ReactJS frontend is currently very basic. Extend the frontend by:
+3. Currently the connect/disconnect button in the top right corner of the `ui` (frontend) does not update when data is streamed in via streaming service. Why is this occurring and what can be done to rectify this?
 
-- Making the battery temperature value change colours based on the current temperature (e.g. changing to red when the safe temperature range is exceeded).
+4. The NextJS frontend is currently very basic. **Using primarily tailwindCSS and Shadcn/ui components**, extend the frontend by completing the following:
+
+- Ensure the data displayed from `streaming-service` is correct to **3 decimal places** instead of being unbounded as it is currently.
+- Ensure the battery temperature value changes colours based on the current temperature (E.g. changing to red when the safe temperature range is exceeded).
   - Safe operating ranges are defined below
     | Range | Colour |
     |---------------------------------|--------|
     | Safe (20-80) | Green |
     | Nearing unsafe (20-25 or 75-80) | Yellow |
     | Unsafe (<20 or >80) | Red |
-- Making the frontend more aesthetically pleasing, however you see fit.
+  - You may extend globals.css and tailwind.config.js where you see fit to implement these colours, or can elect to use another method (although the former is preferred).
+- Create three additional features in the provided system. **These should involve visible changes in the `ui` but do not have to exclusively involve the ui** (E.g. error messages interface, light-mode toggle, graphing data).
+  - To implement these, you may alter the streaming service payload if necessary.
+  - You may use components other than those mentioned above if they can be justified in your `brainstorming.md` file (E.g. additional charting libraries, notifications (toast) libraries etc).
+
+5. **Optional Task** - Within the ui repository is a file named `page.tsx`. You should be familiar with this file from previous steps. You are tasked with seperating the **websocket** code from `page.tsx` into a new file called `data-wrapper.tsx`. This should contain any code that handles the storage/acquisition of data from streaming service. The file `data-wrapper.tsx` should contain a react context that wraps `numeric.tsx` and any other components that display data.
+- To use the data stored in this file, you will need to create a context hook using createContext/useContext.
+- The following is a brief introduction into creating a react context and the benefits/reasons for doing so:
+https://www.w3schools.com/react/react_usecontext.asp  
+
+## Running the System
 
 To start the telemetry system:
 
@@ -90,9 +101,10 @@ cd DAQ-Technical-Assessment/telemetry
 docker compose up
 ```
 
-To see the UI, go to [http://localhost:3000](http://localhost:3000) in your browser.
+To see the ui, go to [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Additional Notes
 
+- In order to use this command you will have to install **Docker Desktop** in Windows or **Docker** in the terminal locally depending on how your system is configured. 
 - If you happen to install any new packages, you will need to run `docker compose up --build`.
   - To simplify, the reason for this is because the telemetry system runs in a containerised environment where the packages are only installed upon the containers first build. So once the containers are created (with `docker compose up`), should there be any package changes, the containers must be rebuilt (denoted by the `--build` flag) for the new packages to be installed.
