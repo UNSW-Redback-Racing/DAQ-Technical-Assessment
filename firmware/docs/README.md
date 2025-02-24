@@ -135,7 +135,7 @@ Your output format should include the UNIX timestamp (in seconds) when the senso
 (1730892639.317234): Motor_moment_target: 0
 ```
 
-If the first few lines of your output matches the three lines above, great! You are on the right track. Of course, your output will be much larger than what we've provided above. **Note that the formatting of your output must strictly match the formatting defined above to pass auto-tests however, we will be manually marking where applicable.**
+If the first few lines of your output matches the lines above, great! You are on the right track. Of course, your output will be much larger than what we've provided above. **Note that the formatting of your output must strictly match the formatting defined above to pass auto-tests however, we will be manually marking where applicable.**
 
 ## **Project Setup / Requirements**
 
