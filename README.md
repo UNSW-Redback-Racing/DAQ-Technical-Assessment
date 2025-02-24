@@ -10,7 +10,7 @@ We also highly encourage you to read through the code and try to understand how 
 
 If you have any questions/require clarification about the spec, direct them to the [#daq-ta-questions](https://discord.com/channels/884232338316345374/1144840015856291890) channel within the [UNSW Redback Racing Discord](https://discord.gg/fVErHVAapj) server.
 
-### Submission Due Date: 11:59PM 31/08/2024
+### Submission Due Date: 11:59PM 15/03/2025
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ If you have any questions/require clarification about the spec, direct them to t
 
 ## Setup
 
-1. [Fork](https://github.com/UNSW-Redback-Racing/DAQ-Technical-Assessment/fork) the repository to your own GitHub account
+1. [Fork](https://github.com/UNSW-Redback-Racing/DAQ-Technical-Assessment/fork) the repository to your own GitHub account (Do **not** make a branch)
 2. Clone the forked repo to your system
 
 ## Tasks
@@ -27,7 +27,7 @@ If you have any questions/require clarification about the spec, direct them to t
 This technical assessment consists of 3 themes.
 
 - Firmware
-- Telemetry
+- Spyder (Frontend + Backend)
 - Cloud
 
 We expect you to attempt at least one section to completion however you may attempt all sections.
@@ -40,4 +40,4 @@ Please refer to the `docs/README.md` file within each theme directory to find re
 
 ## Submission
 
-Complete the submission form [here](https://forms.office.com/r/MCqDaKu3c5)
+Complete the submission form [here](https://forms.office.com/r/NPkBJZwVzG)

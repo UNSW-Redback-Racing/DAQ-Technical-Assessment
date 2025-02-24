@@ -135,7 +135,7 @@ Your output format should include the UNIX timestamp (in seconds) when the senso
 (1730892639.317234): Motor_moment_target: 0
 ```
 
-If the first few lines of your output matches the three lines above, great! You are on the right track. Of course, your output will be much larger than what we've provided above. **Note that the formatting of your output must strictly match the formatting defined above to pass auto-tests however, we will be manually marking where applicable.**
+If the first few lines of your output matches the lines above, great! You are on the right track. Of course, your output will be much larger than what we've provided above. **Note that the formatting of your output must strictly match the formatting defined above to pass auto-tests however, we will be manually marking where applicable.**
 
 ## **Project Setup / Requirements**
 
@@ -203,7 +203,7 @@ For the easiest setup on Windows, use Windows Subsystem for Linux (WSL) with Doc
 
 ### Important Notes
   
-  - You are allowed to use ChatGPT but please mention it's usage in the `brainstorming.md`. ChatGPT may hallucinate correct code however. Be careful and understand the DBC spec.
+  - You are allowed to use any Generative AI (e.g. ChatGPT, Google Gemini, Deepseek etc.) to aid you but please mention it's usage in the `brainstorming.md`. Generative AI may hallucinate correct code however. Be careful and understand the DBC spec.
   - Be aware that multiple DBC files **may define the same CAN ID**, so handle this case correctly.
   - **Feel free to ask any questions in the Redback Discord! Ask much as you need.**
 

@@ -4,6 +4,6 @@ This file is used to document your thoughts, approaches and research conducted a
 
 ## Firmware
 
-## Telemetry
+## Spyder
 
 ## Cloud
