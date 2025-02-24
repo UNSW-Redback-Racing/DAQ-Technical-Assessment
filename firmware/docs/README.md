@@ -203,7 +203,7 @@ For the easiest setup on Windows, use Windows Subsystem for Linux (WSL) with Doc
 
 ### Important Notes
   
-  - You are allowed to use ChatGPT but please mention it's usage in the `brainstorming.md`. ChatGPT may hallucinate correct code however. Be careful and understand the DBC spec.
+  - You are allowed to use any Generative AI (e.g. ChatGPT, Google Gemini, Deepseek etc.) to aid you but please mention it's usage in the `brainstorming.md`. Generative AI may hallucinate correct code however. Be careful and understand the DBC spec.
   - Be aware that multiple DBC files **may define the same CAN ID**, so handle this case correctly.
   - **Feel free to ask any questions in the Redback Discord! Ask much as you need.**
 
