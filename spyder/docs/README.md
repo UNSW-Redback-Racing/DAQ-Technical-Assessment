@@ -83,7 +83,7 @@ To do this:
     ```bash
     docker stop spyder-data-emulator-1
     ```  
-  - To see a list of all running docker containers
+  - To start the data-emulator docker container
     ```bash
     docker start spyder-data-emulator-1
     ```  
