@@ -1,0 +1,307 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: INV Third_Party_Device BMS
+VAL_TABLE_ GenericActive 1 "Inactive" 0 "Active" ;
+VAL_TABLE_ PedalSensitivity 2 "Throttle HIGH" 1 "Throttle MID" 0 "Throttle LOW" ;
+VAL_TABLE_ LaunchModeStatus 3 "Launch ACTIVE" 2 "Launch READY" 1 "Launch INACTIVE" 0 "Launch FAILED" ;
+
+
+BO_ 768 CANNODE_FrontSteeringRotary: 2 Vector__XXX
+ SG_ SteeringRotary : 0|16@1+ (0.001,0) [0|0] "" Vector__XXX
+
+BO_ 256 CANNODE_FrontDampers: 4 Vector__XXX
+ SG_ FrontRightDamper : 16|16@1+ (0.001,0) [0|0] "" Vector__XXX
+ SG_ FrontLeftDamper : 0|16@1+ (0.001,0) [0|0] "" Vector__XXX
+
+BO_ 666 DAQ_DebugStates: 1 Vector__XXX
+ SG_ Pi_Heartbeat : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1810 PDM_BoardStates: 2 Vector__XXX
+ SG_ Board8Ch2_On : 15|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board7Ch2_On : 14|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board6Ch2_On : 13|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board5Ch2_On : 12|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board4Ch2_On : 11|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board3Ch2_On : 10|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board2Ch2_On : 9|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board1Ch2_On : 8|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board8Ch1_On : 7|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board7Ch1_On : 6|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board6Ch1_On : 5|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board5Ch1_On : 4|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board4Ch1_On : 3|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board3Ch1_On : 2|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board2Ch1_On : 1|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Board1Ch1_On : 0|1@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 290 RearIMU_Gyros: 6 Vector__XXX
+ SG_ GYRO_Z : 32|16@1- (0.001,0) [-32.768|32.767] "rad.s-1" Vector__XXX
+ SG_ GYRO_Y : 16|16@1- (0.001,0) [-32.768|32.767] "rad.s-1" Vector__XXX
+ SG_ GYRO_X : 0|16@1- (0.001,0) [-32.768|32.767] "rad.s-1" Vector__XXX
+
+BO_ 373 RearIMU_GPS_Pos: 8 Vector__XXX
+ SG_ LONGITUDE : 32|32@1- (1E-007,0) [-214.7483648|214.7483647] "°" Vector__XXX
+ SG_ LATITUDE : 0|32@1- (1E-007,0) [-214.7483648|214.7483647] "°" Vector__XXX
+
+BO_ 369 RearIMU_gps1Velocity: 6 Vector__XXX
+ SG_ VELOCITY_D : 32|16@1- (0.01,0) [-327.68|327.67] "m.s-1" Vector__XXX
+ SG_ VELOCITY_E : 16|16@1- (0.01,0) [-327.68|327.67] "m.s-1" Vector__XXX
+ SG_ VELOCITY_N : 0|16@1- (0.01,0) [-327.68|327.67] "m.s-1" Vector__XXX
+
+BO_ 289 RearIMU_Acceleration: 6 Vector__XXX
+ SG_ ACCEL_Z : 32|16@1- (0.01,0) [-327.68|327.67] "m.s-2" Vector__XXX
+ SG_ ACCEL_Y : 16|16@1- (0.01,0) [-327.68|327.67] "m.s-2" Vector__XXX
+ SG_ ACCEL_X : 0|16@1- (0.01,0) [-327.68|327.67] "m.s-2" Vector__XXX
+
+BO_ 292 RearIMU_Angle_Rates: 6 Vector__XXX
+ SG_ DELTA_ANGLE_Z : 32|16@1- (0.001,0) [-32.768|32.767] "rad.s-1" Vector__XXX
+ SG_ DELTA_ANGLE_Y : 16|16@1- (0.001,0) [-32.768|32.767] "rad.s-1" Vector__XXX
+ SG_ DELTA_ANGLE_X : 0|16@1- (0.001,0) [-32.768|32.767] "rad.s-1" Vector__XXX
+
+BO_ 306 RearIMU_EKF_Euler: 6 Vector__XXX
+ SG_ YAW : 32|16@1- (0.0001,0) [-3.2768|3.2767] "rad" Vector__XXX
+ SG_ PITCH : 16|16@1- (0.0001,0) [-3.2768|3.2767] "rad" Vector__XXX
+ SG_ ROLL : 0|16@1- (0.0001,0) [-3.2768|3.2767] "rad" Vector__XXX
+
+BO_ 313 RearIMU_EKF_Velocity_Body: 6 Vector__XXX
+ SG_ VELOCITY_Z : 32|16@1- (0.01,0) [-327.68|327.67] "m.s-1" Vector__XXX
+ SG_ VELOCITY_Y : 16|16@1- (0.01,0) [-327.68|327.67] "m.s-1" Vector__XXX
+ SG_ VELOCITY_X : 0|16@1- (0.01,0) [-327.68|327.67] "m.s-1" Vector__XXX
+
+BO_ 1361 RearIMU_EKF_NED_VEL_ACC: 6 Vector__XXX
+ SG_ VELOCITY_ACC_D : 32|16@1- (0.01,0) [-327.68|327.67] "m.s-1" Vector__XXX
+ SG_ VELOCITY_ACC_E : 16|16@1- (0.01,0) [-327.68|327.67] "m.s-1" Vector__XXX
+ SG_ VELOCITY_ACC_N : 0|16@1- (0.01,0) [-327.68|327.67] "m.s-1" Vector__XXX
+
+BO_ 368 RearIMU_GPU_Vel_Info: 8 Vector__XXX
+ SG_ STATUS : 32|32@1+ (1,0) [0|4294970000] "" Vector__XXX
+ SG_ TIME_STAMP : 0|32@1+ (1,0) [0|4294970000] "µs" Vector__XXX
+
+BO_ 372 RearIMU_GPS_Pos_Info: 8 Vector__XXX
+ SG_ STATUS : 32|32@1+ (1,0) [0|4294970000] "" Vector__XXX
+ SG_ TIME_STAMP : 0|32@1+ (1,0) [0|4294970000] "µs" Vector__XXX
+
+BO_ 544 RearIMU_Slips: 7 Vector__XXX
+ SG_ AUTO_STATUS : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ CURVATURE_RADIUS : 32|16@1+ (0.01,0) [0|655.35] "m" Vector__XXX
+ SG_ ANGLE_SLIP : 16|16@1- (0.0001,0) [-3.2768|3.2767] "rad" Vector__XXX
+ SG_ ANGLE_TRACK : 0|16@1- (0.0001,0) [-3.2768|3.2767] "rad" Vector__XXX
+
+BO_ 1803 ECU_DashboardParams: 1 Vector__XXX
+ SG_ RegenActive : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PedalSensitivity : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaunchModeStatus : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CruiseControlActive : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1802 ECU_CoolantTemp: 6 Vector__XXX
+ SG_ CoolantTempInverter : 0|16@1- (0.1,0) [0|0] "DegreesCelsius" Vector__XXX
+ SG_ CoolantTempFanOUT : 32|16@1- (0.1,0) [0|0] "DegreesCelsius" Vector__XXX
+ SG_ CoolantTempFanIN : 16|16@1- (0.1,0) [0|0] "DegreesCelsius" Vector__XXX
+
+BO_ 1801 ECU_CoolantPressure: 6 Vector__XXX
+ SG_ CoolantPressureFanOUT : 32|16@1- (0.1,0) [0|0] "kPa" Vector__XXX
+ SG_ CoolantPressureFanIN : 16|16@1- (0.1,0) [0|0] "kPa" Vector__XXX
+ SG_ CoolantInverterPressure : 0|16@1- (0.1,0) [0|0] "kPa" Vector__XXX
+
+BO_ 1800 ECU_BrakePressures: 4 Vector__XXX
+ SG_ BrakePressure_Rear : 16|16@1+ (0.1,0) [0|0] "MPa" Vector__XXX
+ SG_ BrakePressure_Front : 0|16@1+ (0.1,0) [0|0] "MPa" Vector__XXX
+
+BO_ 1799 ECU_Health_Laps: 8 Vector__XXX
+ SG_ IMD : 0|16@1- (0.1,0) [0|0] "ohms" Vector__XXX
+ SG_ LapBeacon : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BatteryVoltage : 16|8@1+ (0.1,0) [0|0] "volts" Vector__XXX
+
+BO_ 1798 ECU_Steering_Pedals: 6 Vector__XXX
+ SG_ SteeringAngle : 0|16@1- (0.1,0) [0|0] "Degrees" Vector__XXX
+ SG_ BPPS : 32|16@1- (1,0) [0|0] "Percent" Vector__XXX
+ SG_ APPS : 16|16@1- (1,0) [0|0] "Percent" Vector__XXX
+
+BO_ 1797 ECU_WheelSpeed: 8 Vector__XXX
+ SG_ WheelSpeedRR : 32|16@1- (0.1,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeedRL : 48|16@1- (0.1,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeedFR : 0|16@1- (0.1,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeedFL : 16|16@1- (0.1,0) [0|0] "km/h" Vector__XXX
+
+BO_ 1796 ECU_RearDampers_RearBrakes: 8 Vector__XXX
+ SG_ BrakeTemp_RR : 32|16@1- (0.1,0) [0|0] "Celsius" Vector__XXX
+ SG_ BrakeTemp_RL : 48|16@1- (0.1,0) [0|0] "Celsius" Vector__XXX
+ SG_ DamperTravel_RR : 0|16@1- (0.01,0) [0|0] "mm" Vector__XXX
+ SG_ DamperTravel_RL : 16|16@1- (0.01,0) [0|0] "mm" Vector__XXX
+
+BO_ 1804 ECU_TractiveState: 1 Vector__XXX
+ SG_ Tractive_State : 0|4@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1697 TyreTempRL: 8 Vector__XXX
+ SG_ TyreTempRL8 : 48|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRL6 : 32|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRL3 : 16|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRL1 : 0|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+
+BO_ 1696 TyreTempRR: 8 Vector__XXX
+ SG_ TyreTempRR8 : 48|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRR6 : 32|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRR3 : 16|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+ SG_ TyreTempRR1 : 0|16@1- (0.1,0) [0|0] "Degrees Celsius" Vector__XXX
+
+BO_ 1554 FrontIMU_compass: 6 Vector__XXX
+ SG_ FrontIMU_compass_z : 32|16@1- (0.001,0) [0|0] "gauss" Vector__XXX
+ SG_ FrontIMU_compass_y : 16|16@1- (0.001,0) [0|0] "gauss" Vector__XXX
+ SG_ FrontIMU_compass_x : 0|16@1- (0.001,0) [0|0] "gauss" Vector__XXX
+
+BO_ 1553 FrontIMU_gyros: 6 Vector__XXX
+ SG_ FrontIMU_gyros_z : 32|16@1- (0.1,0) [0|0] "deg/s" Vector__XXX
+ SG_ FrontIMU_gyros_y : 16|16@1- (0.1,0) [0|0] "deg/s" Vector__XXX
+ SG_ FrontIMU_gyros_x : 0|16@1- (0.1,0) [0|0] "deg/s" Vector__XXX
+
+BO_ 1552 FrontIMU_acceleration: 6 Vector__XXX
+ SG_ FrontIMU_acc_z : 32|16@1- (0.001,0) [-32768|32767] "g" Vector__XXX
+ SG_ FrontIMU_acc_y : 16|16@1- (0.001,0) [-32768|32767] "g" Vector__XXX
+ SG_ FrontIMU_acc_x : 0|16@1- (0.001,0) [-32.768|32.767] "g" Vector__XXX
+
+BO_ 162 M162_Temperature_Set_3: 8 INV
+ SG_ D4_Torque_Shudder : 48|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+ SG_ D3_Motor_Temperature : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D2_RTD5_Temperature : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D1_RTD4_Temperature : 0|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+
+BO_ 1716 MSGID_0x6B4: 8 Vector__XXX
+ SG_ Low_Cell_Voltage : 55|16@0+ (0.0001,0) [0|0] "V" Vector__XXX
+ SG_ Low_Cell_Voltage_ID : 47|8@0+ (1,1720) [0|0] "ID" Vector__XXX
+ SG_ High_Cell_Voltage : 31|16@0+ (0.0001,0) [0|0] "V" Vector__XXX
+ SG_ High_Cell_Voltage_ID : 23|8@0+ (1,0) [0|0] "ID" Vector__XXX
+ SG_ Avg_Cell_Voltage : 7|16@0+ (0.0001,0) [0|0] "V" Vector__XXX
+
+BO_ 161 M161_Temperature_Set_2: 8 INV
+ SG_ D4_RTD3_Temperature : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D3_RTD2_Temperature : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D2_RTD1_Temperature : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D1_Control_Board_Temperature : 0|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+
+BO_ 1713 MSGID_0X6B1: 8 BMS
+ SG_ Pack_DCL : 7|16@0+ (1,0) [0|0] "A"  Third_Party_Device
+ SG_ Pack_CCL : 23|16@0+ (1,0) [0|0] "Amp"  Third_Party_Device
+ SG_ High_Temperature : 39|8@0+ (1,0) [0|0] "Celsius"  Third_Party_Device
+ SG_ Low_Temperature : 47|8@0+ (1,0) [0|0] "Celsius"  Third_Party_Device
+
+BO_ 1808 SteeringWheelButtons: 6 Vector__XXX
+ SG_ Button7_hold_time : 16|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button6_hold_time : 20|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button5_hold_time : 24|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button4_hold_time : 28|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button3_hold_time : 32|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button2_hold_time : 36|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button1_hold_time : 40|4@1+ (0.5,0) [0|0] "" Vector__XXX
+ SG_ Button7 : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button6 : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button5 : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button4 : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button3 : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button2 : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button1 : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button7_hold : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button6_hold : 9|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button5_hold : 10|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button4_hold : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button3_hold : 12|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button2_hold : 13|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Button1_hold : 14|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1811 AVDebugDisplay_1: 7 Vector__XXX
+ SG_ RES_CONN_CAN : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ JETSON_CONN_CAN : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ JETSON_LIDAR_DATA_CONN : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ JETSON_CAMERA_DATA_CONN : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ SBG_CONN : 5|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ JETSON_IP : 6|32@1+ (1,0) [0|255255255255] "" Vector__XXX
+ SG_ JETSON_CPU_TEMP : 38|7@1+ (1,0) [0|128] "Celsius" Vector__XXX
+ SG_ JETSON_GPU_TEMP : 45|7@1+ (1,0) [0|128] "Celsius" Vector__XXX
+ SG_ RES_POWER : 52|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1812 AVDebugDisplay_2: 7 Vector__XXX
+ SG_ JETSON_POWER_CONSUMPTION : 0|7@1+ (1,0) [0|128] "Watt" Vector__XXX
+ SG_ JETSON_POWER_MODE : 7|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ AV_STARTUP_STATUS : 9|4@1+ (1,0) [0|9] "" Vector__XXX
+ SG_ SBG_SOLN_STATUS : 13|3@1+ (1,0) [0|8] "" Vector__XXX
+ SG_ AS_STATE_ROS : 16|3@1+ (1,0) [0|8] "" Vector__XXX
+ SG_ AS_MISSION_ROS : 19|3@1+ (1,0) [0|8] "" Vector__XXX
+ SG_ STANLEY_STATUS : 22|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ PURE_PURSUIT_STATUS : 26|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ LIDAR_NODE_STATUS : 30|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ CAMERA_NODE_STATUS : 31|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ SENSOR_FUSION_STATUS : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LIDAR_DRIVER_STATUS : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ CAMERA_DRIVER_STATUS : 34|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ WAYPOINT_NODE_STATUS : 35|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ SLAM_STATUS : 39|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ STATE_ESTIMATOR_STATUS : 43|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ MISSION_CONTROLLER_STATUS : 47|4@1+ (1,0) [0|10] "" Vector__XXX
+ SG_ BRAKE_HOLD : 51|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1813 AVDebugDisplay_3: 8 Vector__XXX
+ SG_ LONGITUDE : 0|16@1- (0.01,0) [0|0] "degree" Vector__XXX
+ SG_ LATITUDE : 16|16@1- (0.01,0) [0|0] "degree" Vector__XXX
+ SG_ SBG_ACC_X : 32|16@1- (0.01,0) [0|0] "cm" Vector__XXX
+ SG_ SBG_ACC_Y : 48|16@1- (0.01,0) [0|0] "cm" Vector__XXX
+
+BO_ 1814 AVDebugDisplay_4: 8 Vector__XXX
+ SG_ STEERING_REQ_ROS : 0|16@1- (0.01,0) [0|0] "degree" Vector__XXX
+ SG_ STEERING_ACTUAL : 48|16@1- (0.01,0) [0|0] "degree" Vector__XXX
+ SG_ TORQUE_REQ_ROS : 16|16@1- (0.01,0) [0|0] "N/m" Vector__XXX
+ SG_ VELOCITY_REQ_ROS : 32|16@1- (0.01,0) [0|0] "m/s" Vector__XXX
+
+BO_ 1815 AVDebugDisplay_5: 8 Vector__XXX
+ SG_ TORQUE_ACTUAL : 16|16@1- (0.01,0) [0|0] "N/m" Vector__XXX
+ SG_ VELOCITY_ACTUAL : 0|16@1- (0.01,0) [0|0] "m/s" Vector__XXX
+ SG_ ACCEL_ACTUAL : 32|16@1- (0.01,0) [0|0] "m/s^2" Vector__XXX
+ SG_ ACCEL_REQ_ROS : 48|16@1- (0.01,0) [0|0] "m/s^2" Vector__XXX
+
+BO_ 1816 DAQ_Accu_power: 4 Vector__XXX
+ SG_ Pack_power : 0|16@1+ (1,0) [0|0] "kW" Vector__XXX
+ SG_ Pack_power_average_100s : 16|16@1+ (1,0) [0|0] "kW" Vector__XXX
+
+
+
+BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "MultiplexExtEnabled" "No";
+BA_DEF_DEF_  "BusType" "CAN";
+VAL_ 1803 RegenActive 1 "Inactive" 0 "Active" ;
+VAL_ 1803 PedalSensitivity 2 "Throttle HIGH" 1 "Throttle MID" 0 "Throttle LOW" ;
+VAL_ 1803 LaunchModeStatus 3 "Launch ACTIVE" 2 "Launch READY" 1 "Launch INACTIVE" 0 "Launch FAILED" ;
+VAL_ 1803 CruiseControlActive 1 "Inactive" 0 "Active" ;
+
+
