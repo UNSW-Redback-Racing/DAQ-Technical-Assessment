@@ -89,11 +89,11 @@ You are provided with **four** files:
     ```
   - The **CAN ID** is in **hexadecimal**; however, **DBC files use decimal format**.
 
-- `SensorBus.dbc`
+- `ControlBus.dbc` for **can0**
 
-- `TractiveBus.dbc`
+- `SensorBus.dbc`  for **can1**
 
-- `ControlBus.dbc`
+- `TractiveBus.dbc` for **can2**
 
 ---
 
@@ -110,22 +110,32 @@ Using **dbcppp** (a DBC file parsing library), parse the `dump.log` file and ext
      - Update Docker Instructions to support dbcppp
 2. Extract the **timestamp**, **frame ID**, and **data bytes** from `dump.log`.
 3. Use **dbcppp** to parse the three DBC files.
-4. Decode all CAN frames from `dump.log` according to their corresponding DBC definitions to the correct output.
+4. Decode all CAN frames from `dump.log` according to their corresponding DBC definitions to the correct output. Remember that each interface has its own respective DBC file.
 5. Generate your output to a file called **`output.txt`**. Ensure it matches the convention below.
 
 
 #### Expected Format/Output 
-Your output format should include the UNIX timestamp (in seconds) when the sensor emitted data, the sensor name and the decoded value in that order. The delimiter must be a `:`. The first three lines of the expected output is defined below:
-
-(NEED TO UPDATE)
+Your output format should include the UNIX timestamp (in seconds) when the sensor emitted data, the sensor name and the decoded value in that order. The delimiter must be a `:`. The first few lines of the expected output is defined below:
 
 ```
-(1705638753.913408): WheelSpeedFR: 4972.1
-(1705638753.913408): WheelSpeedRR: 4546.1
-(1705638754.915609): WheelSpeedFR: 4646.0
+(1730892639.316946): CoolantPressureFanOUT: -1724.5
+(1730892639.316946): CoolantPressureFanIN: -3276.8
+(1730892639.316946): CoolantInverterPressure: 3276.7
+(1730892639.317588): Pack_Current: 0
+(1730892639.317588): Pack_Inst_Voltage: 485.3
+(1730892639.317588): Pack_SOC: 14.5
+(1730892639.317588): Relay_State: 30793
+(1730892639.317234): Speed_actual: 0
+(1730892639.317234): Speed_target: 0
+(1730892639.317234): Steering_angle_actual: -1.5
+(1730892639.317234): Steering_angle_target: 0
+(1730892639.317234): Brake_hydr_actual: 255
+(1730892639.317234): Brake_hydr_target: 0
+(1730892639.317234): Motor_moment_actual: 0
+(1730892639.317234): Motor_moment_target: 0
 ```
 
-If the first three lines of your output matches the three lines above, great! You are on the right track. Of course, your output will be much larger than what we've provided above. **Note that the formatting of your output must strictly match the formatting defined above to pass auto-tests however, we will be manually marking where applicable.**
+If the first few lines of your output matches the three lines above, great! You are on the right track. Of course, your output will be much larger than what we've provided above. **Note that the formatting of your output must strictly match the formatting defined above to pass auto-tests however, we will be manually marking where applicable.**
 
 ## **Project Setup / Requirements**
 
@@ -212,14 +222,14 @@ Answer the following theoretical questions in `answer.txt`.
 
 ### Task
 - Using [STM32 MCU product selector](https://www.st.com/content/st_com/en/stm32-mcu-product-selector.html), find a chip with: 
-  1. 3 CAN buses, 
-  2. ethernet support, 
-  3. at least 3 A/D converters, 
-  4. USB support, 
-  5. 12 16bit timers,
-  6. flash size of 2048kB. 
+  1. 3 CAN buses
+  2. ethernet support
+  3. at least 3 A/D converters
+  4. USB support
+  5. 12 16bit timers
+  6. flash size of 2048kB
 
-* Which STM32 chip have you selected? **Provide justification** for your selection
+* Which STM32 chip have you selected? **Provide justification** for your selection.
   - Does this chip exceed the minimum requirements, or does it just meet them?
   - What are its power requirements?  
   - What are its physical dimensions?  
