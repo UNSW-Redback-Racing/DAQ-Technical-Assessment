@@ -8,7 +8,7 @@ It consists of three components:
 
 - **Streaming Service** - this is an application that simultaneously receives a connection from the data emulator and forwards incoming packets of data to connected frontend clients over the WebSocket protocol.
 
-- **Frontend** - this is a ReactJS based frontend application that you will manipulate/design to visualise the temperature of the battery.
+- **UI** - this is a ReactJS based frontend application that you will manipulate/design to visualise the temperature of the battery.
 
   ![system-flow](./system-flow.svg)
 
@@ -66,13 +66,29 @@ To do this:
 
 **Additionally, it is assumed that your solution to each answer is justified within the `brainstorming.md` file. You may write as much content as you see fit for each question.**
 
-1. When running the emulator, the client will occasionally recieve values in the incorrect format. This will be visible in the output of `streaming service` as well as the `UI`. Think about what is happening, and write additional code in `streaming service` that prevents 'invalid' data from being sent to the frontend. What you wish to do with 'invalid' data is up to you, so long as it is justified in `brainstorming.md`.
+1. Since the `streaming service` and `ui` services operate within docker containers, any code changes that you make will not be immediately reflected until you rebuild the containers. [nodemon](https://www.npmjs.com/package/nodemon) is a package which will help reflect any changes you make immediately by automatically restarting the node application when any file is changed. Your task is to install and configure the **nodemon** npm package into both the `streaming-service` and `ui` directories.
 
-2. A safe operating range for the battery temperature is 20-80 degrees. Add a feature to the backend `streaming-service` so that each time the received battery temperature exceeds this range more than 3 times in 5 seconds, the current timestamp and a simple error message is printed to console.
+2. When running the emulator, the client will occasionally recieve values in the incorrect format. This will be visible in the output of `streaming service` as well as the `ui`. Think about what is happening, and write additional code in `streaming-service` that prevents 'invalid' data from being sent to the frontend. What you wish to do with 'invalid' data is up to you, so long as it is justified in `brainstorming.md`.
 
-3. Currently the connect/disconnect button in the top right corner of the `ui` (frontend) does not update when data is streamed in via streaming service. Why is this occurring and what can be done to rectify this?
+3. A safe operating range for the battery temperature is 20-80 degrees. Add a feature to the backend `streaming-service` so that each time the received battery temperature exceeds this range more than 3 times in 5 seconds, the current timestamp and a simple error message is printed to console.
 
-4. The NextJS frontend is currently very basic. **Using primarily tailwindCSS and Shadcn/ui components**, extend the frontend by completing the following:
+4. Currently the connect/disconnect button in the top right corner of the ui (frontend) does not update when data is streamed in via streaming service. Why is this occurring and what can be done to rectify this?
+
+- **Tip:** To start/stop emulating data, you can start/stop the individual data-emulator docker container
+  - To see a list of all running docker containers
+    ```bash
+    docker ps
+    ```  
+  - To stop the data-emulator docker container
+    ```bash
+    docker stop spyder-data-emulator-1
+    ```  
+  - To see a list of all running docker containers
+    ```bash
+    docker start spyder-data-emulator-1
+    ```  
+
+5. The NextJS frontend is currently very basic. **Using primarily tailwindCSS and Shadcn/ui components**, extend the frontend by completing the following:
 
 - Ensure the data displayed from `streaming-service` is correct to **3 decimal places** instead of being unbounded as it is currently.
 - Ensure the battery temperature value changes colours based on the current temperature (E.g. changing to red when the safe temperature range is exceeded).
@@ -82,12 +98,13 @@ To do this:
     | Safe (20-80) | Green |
     | Nearing unsafe (20-25 or 75-80) | Yellow |
     | Unsafe (<20 or >80) | Red |
-  - You may extend globals.css and tailwind.config.js where you see fit to implement these colours, or can elect to use another method (although the former is preferred).
+  - You may extend `globals.css` and `tailwind.config.js` where you see fit to implement these colours, or can elect to use another method (although the former is preferred).
 - Create three additional features in the provided system. **These should involve visible changes in the `ui` but do not have to exclusively involve the ui** (E.g. error messages interface, light-mode toggle, graphing data).
   - To implement these, you may alter the streaming service payload if necessary.
   - You may use components other than those mentioned above if they can be justified in your `brainstorming.md` file (E.g. additional charting libraries, notifications (toast) libraries etc).
+  - You are free to make more than three additional features if you're feeling creative!
 
-5. **Optional Task** - Within the ui repository is a file named `page.tsx`. You should be familiar with this file from previous steps. You are tasked with seperating the **websocket** code from `page.tsx` into a new file called `data-wrapper.tsx`. This should contain any code that handles the storage/acquisition of data from streaming service. The file `data-wrapper.tsx` should contain a react context that wraps `numeric.tsx` and any other components that display data.
+6. **Optional Task** - Within the `ui` repository is a file named `page.tsx`. You should be familiar with this file from previous steps. You are tasked with seperating the **websocket** code from `page.tsx` into a new file called `data-wrapper.tsx`. This should contain any code that handles the storage/acquisition of data from streaming service. The file `data-wrapper.tsx` should contain a react context that wraps `numeric.tsx` and any other components that display data.
 - To use the data stored in this file, you will need to create a context hook using createContext/useContext.
 - The following is a brief introduction into creating a react context and the benefits/reasons for doing so:
 https://www.w3schools.com/react/react_usecontext.asp  
