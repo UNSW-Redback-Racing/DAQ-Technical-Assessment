@@ -1,4 +1,4 @@
-# Telemetry System
+# Spyder
 
 You are given code for a simple live telemetry application which is able to visualise sensor data streamed over a network - specifically, it is able to visualise the temperature of a Electric Vehicle battery, ensuring that it doesn't get dangerously hot and explode!
 
@@ -58,7 +58,7 @@ To do this:
   cd ui; npm install
   ```
 
-  Static analysis tools should work now given the above steps. To run the system as a whole, open a terminal within the `telemetry/` directory and execute `docker compose up`.
+  Static analysis tools should work now given the above steps. To run the system as a whole, open a terminal within the `spyder/` directory and execute `docker compose up`.
 
 ## Tasks
 
@@ -97,7 +97,7 @@ https://www.w3schools.com/react/react_usecontext.asp
 To start the telemetry system:
 
 ```bash
-cd DAQ-Technical-Assessment/telemetry
+cd DAQ-Technical-Assessment/spyder
 docker compose up
 ```
 
