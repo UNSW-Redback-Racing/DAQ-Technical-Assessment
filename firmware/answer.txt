@@ -1,3 +1,8 @@
 Use this file to write your answer to Stage 2 of the firmware tasks.
 
-Question 1:
+CAN
+Q1:
+
+Q2:
+
+STM32 Chip Selection
