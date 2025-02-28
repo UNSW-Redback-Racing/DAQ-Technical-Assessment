@@ -8,7 +8,7 @@ We also highly encourage you to read through the code and try to understand how 
 
 **Please ensure you note down your approaches, thoughts and research in the [brainstorming.md](./brainstorming.md) file.**
 
-If you have any questions/require clarification about the spec, direct them to the [#daq-ta-questions](https://discord.com/channels/884232338316345374/1144840015856291890) channel within the [UNSW Redback Racing Discord](https://discord.gg/fVErHVAapj) server.
+If you have any questions/require clarification about the spec, direct them to the [#daq-ta-questions](https://discord.com/channels/884232338316345374/1144840015856291890) channel within the [UNSW Redback Racing Discord](https://discord.gg/7RT4qewZ) server.
 
 ### Submission Due Date: 11:59PM 15/03/2025
 
