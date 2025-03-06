@@ -66,7 +66,7 @@ To do this:
 
 **Additionally, it is assumed that your solution to each answer is justified within the `brainstorming.md` file. You may write as much content as you see fit for each question.**
 
-1. Since the `streaming service` and `ui` services operate within docker containers, any code changes that you make will not be immediately reflected until you rebuild the containers. [nodemon](https://www.npmjs.com/package/nodemon) is a package which will help reflect any changes you make immediately by automatically restarting the node application when any file is changed. Your task is to install and configure the **nodemon** npm package into both the `streaming-service` and `ui` directories.
+1. Since the `ui` service operates within a docker container, any code changes that you make will not be immediately reflected until you rebuild the containers. [nodemon](https://www.npmjs.com/package/nodemon) is a package which will help reflect any changes you make immediately by automatically restarting the node application when any file is changed. Your task is to install and configure the **nodemon** npm package into the `ui` directory.
 
 2. When running the emulator, the client will occasionally recieve values in the incorrect format. This will be visible in the output of `streaming service` as well as the `ui`. Think about what is happening, and write additional code in `streaming-service` that prevents 'invalid' data from being sent to the frontend. What you wish to do with 'invalid' data is up to you, so long as it is justified in `brainstorming.md`.
 
