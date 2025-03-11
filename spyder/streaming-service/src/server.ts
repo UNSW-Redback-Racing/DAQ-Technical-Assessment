@@ -11,7 +11,16 @@ const WS_PORT = 8080;
 const tcpServer = net.createServer();
 const websocketServer = new WebSocketServer({ port: WS_PORT });
 
-// Helper function to handle invalid data 
+// Battery Temp Monitoring 
+const SAFE_TEMP_MIN = 20;
+const SAFE_TEMP_MAX = 80;
+const MAX_ALERTS = 3;
+const MONITORING_WINDOW_MS = 5000; // 5 seconds
+
+// Store temp alerts 
+const tempAlerts: number[] = [];
+
+// Function to handle invalid data 
 function validateBatteryData(data: any): any {
   
   // Make sure we have a valid data structure
@@ -32,6 +41,24 @@ function validateBatteryData(data: any): any {
   };
 }
 
+// Function to check if battery temp is within safe range
+function monitorBatteryTemp(data: VehicleData): void {
+  const {battery_temperature, timestamp} = data;
+
+  if (typeof battery_temperature === 'number' && (battery_temperature < SAFE_TEMP_MIN || battery_temperature > SAFE_TEMP_MAX)) {
+    tempAlerts.push(timestamp);
+
+    const cutoffTime = timestamp - MONITORING_WINDOW_MS;
+    while (tempAlerts.length > 0 && tempAlerts[0] < cutoffTime) {
+      tempAlerts.shift();
+    }
+
+    if (tempAlerts.length > MAX_ALERTS) {
+      console.log(`${new Date(timestamp).toISOString()}: Battery temperature has exceeded safe range too frequently.`);
+    }
+  }
+}
+
 tcpServer.on("connection", (socket) => {
   console.log("TCP client connected");
 
@@ -47,6 +74,9 @@ tcpServer.on("connection", (socket) => {
       // Only send valid data to UI
       if (validatedData) {
         const validJsonString = JSON.stringify(validatedData);
+        
+        // Monitor battery temperature
+        monitorBatteryTemp(validatedData);
         
         // Send validated JSON over WS to clients
         websocketServer.clients.forEach(function each(client) {
