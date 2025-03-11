@@ -48,7 +48,7 @@ tcpServer.on("connection", (socket) => {
       if (validatedData) {
         const validJsonString = JSON.stringify(validatedData);
         
-        // Send validated JSON over WS to clitents
+        // Send validated JSON over WS to clients
         websocketServer.clients.forEach(function each(client) {
           if (client.readyState === WebSocket.OPEN) {
             client.send(validJsonString);
