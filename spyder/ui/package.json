@@ -25,9 +25,9 @@
     "ws": "^8.12.1"
   },
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "nodemon --exec next dev --turbopack",
     "build": "next build",
-    "start": "next start"
+    "start": "nodemon --exec next start"
   },
   "eslintConfig": {
     "extends": [
