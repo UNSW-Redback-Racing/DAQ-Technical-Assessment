@@ -11,20 +11,55 @@ const WS_PORT = 8080;
 const tcpServer = net.createServer();
 const websocketServer = new WebSocketServer({ port: WS_PORT });
 
+// Helper function to handle invalid data 
+function validateBatteryData(data: any): any {
+  
+  // Make sure we have a valid data structure
+  if (!data || typeof data.timestamp !== 'number') {
+    console.warn("Invalid data structure received:", data);
+    return null;
+  }
+
+  // Check if data is valid (battery_temperature is a number)
+  if (!data || typeof data.battery_temperature !== 'number') {
+    console.warn("Invalid data received: ", data);
+    return null;
+  }
+
+  return {
+    battery_temperature: data.battery_temperature, 
+    timestamp: data.timestamp
+  };
+}
+
 tcpServer.on("connection", (socket) => {
   console.log("TCP client connected");
 
   socket.on("data", (msg) => {
-    const message: string = msg.toString();
-
-    console.log(`Received: ${message}`);
-    
-    // Send JSON over WS to frontend clients
-    websocketServer.clients.forEach(function each(client) {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(message);
+    try {
+      const message: string = msg.toString();
+      console.log(`Received: ${message}`);
+      
+      // Parse and validate the data
+      const parsedData = JSON.parse(message);
+      const validatedData = validateBatteryData(parsedData);
+      
+      // Only send valid data to UI
+      if (validatedData) {
+        const validJsonString = JSON.stringify(validatedData);
+        
+        // Send validated JSON over WS to clitents
+        websocketServer.clients.forEach(function each(client) {
+          if (client.readyState === WebSocket.OPEN) {
+            client.send(validJsonString);
+          }
+        });
+      } else {
+        console.log("Invalid data filtered out");
       }
-    });
+    } catch (error) {
+      console.error("Error processing data:", error);
+    }
   });
 
   socket.on("end", () => {
