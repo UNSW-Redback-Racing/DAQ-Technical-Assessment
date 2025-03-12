@@ -20,7 +20,7 @@ const tempAlerts: number[] = [];
  /**
    * Function to handle invalid data. 
    */
-function validateBatteryData(data: any): any {
+function validateBatteryData(data: VehicleData): VehicleData | null {
   if (!data || typeof data.timestamp !== 'number') {
     console.warn("Invalid data structure received:", data);
     return null;
