@@ -7,7 +7,7 @@ N/A
 
 ## Spyder
 Task #1: 
-- To install the nodemon packages, I first found the installation command in the nodemon docs and ran `npm install --save-dev nodemon` in both directories to install it as a dev dependency. 
+To install the nodemon packages, I first found the installation command in the nodemon docs and ran `npm install --save-dev nodemon` in both directories to install it as a dev dependency. 
 
 Note: I did not install it globally (through `npm install -g nodemon`) as I believe that it won't affect your docker container. 
 
@@ -54,9 +54,9 @@ Seeing the question - the first place I thought of to check for bugs was in page
         break
     }
   }, [])
+```
 
 Could immediately see the problem here. It's because the hook here has an empty dependency array so it means it only runs once when the component mounts, so it doesn't really react to changes to readyState. To fix the problem, I tried adding readyState to the dependency array, and it worked yay! The button now updated the connection status accordingly :) 
-```
 
 Task #5: 
 
