@@ -56,7 +56,7 @@ export default function Page(): JSX.Element {
         setConnectionStatus("Disconnected")
         break
     }
-  }, [])
+  }, [readyState])
 
   /**
    * Effect hook to handle incoming WebSocket messages.
