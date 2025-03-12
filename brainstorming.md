@@ -30,5 +30,35 @@ Some trade-offs, we do lose a bit of the data (~20%) which is not great.
 
 Coding-wise, my solution was pretty simple - just check battery temperature is a valid number, if it is then send the data to the frontend, if not then log an error msg and it doesn't get sent to the frontend.
 
+Task #3:
+
+Task #4:
+Seeing the question - the first place I thought of to check for bugs was in page.tsx, because that's where the button is being set. 
+
+```
+ useEffect(() => {
+    switch (readyState) {
+      case ReadyState.OPEN:
+        console.log("Connected to streaming service")
+        setConnectionStatus("Connected")
+        break
+      case ReadyState.CLOSED:
+        console.log("Disconnected from streaming service")
+        setConnectionStatus("Disconnected")
+        break
+      case ReadyState.CONNECTING:
+        setConnectionStatus("Connecting")
+        break
+      default:
+        setConnectionStatus("Disconnected")
+        break
+    }
+  }, [])
+
+Could immediately see the problem here. It's because the hook here has an empty dependency array so it means it only runs once when the component mounts, so it doesn't really react to changes to readyState. To fix the problem, I tried adding readyState to the dependency array, and it worked yay! The button now updated the connection status accordingly :) 
+```
+
+Task #5: 
+
 ## Cloud
 N/A
