@@ -8,10 +8,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Thermometer } from "lucide-react"
 import Numeric from "../components/custom/numeric"
+import TemperatureChart from "../components/custom/temperature-chart"
 import RedbackLogoDarkMode from "../../public/logo-darkmode.svg"
 import RedbackLogoLightMode from "../../public/logo-lightmode.svg"
 
 const WS_URL = "ws://localhost:8080"
+const MAX_DATA_POINTS = 50
 
 interface VehicleData {
   battery_temperature: number
@@ -28,6 +30,7 @@ export default function Page(): JSX.Element {
   const { setTheme } = useTheme()
   const [temperature, setTemperature] = useState<any>(0)
   const [connectionStatus, setConnectionStatus] = useState<string>("Disconnected")
+  const [temperatureData, setTemperatureData] = useState<{ timestamp: number; temperature: number }[]>([])
   const { lastJsonMessage, readyState }: { lastJsonMessage: VehicleData | null; readyState: ReadyState } = useWebSocket(
     WS_URL,
     {
@@ -67,6 +70,21 @@ export default function Page(): JSX.Element {
       return
     }
     setTemperature(lastJsonMessage.battery_temperature)
+
+    // Add to temperature history (for chart display)
+    setTemperatureData(prevData => {
+      const newDataPoint = {
+        temperature: lastJsonMessage.battery_temperature,
+        timestamp: lastJsonMessage.timestamp,
+      }
+      
+      // Keep only the latest MAX_DATA_POINTS readings
+      const updatedData = [...prevData, newDataPoint]
+      if (updatedData.length > MAX_DATA_POINTS) {
+        return updatedData.slice(-MAX_DATA_POINTS)
+      }
+      return updatedData
+    })
   }, [lastJsonMessage])
 
   /**
@@ -89,18 +107,49 @@ export default function Page(): JSX.Element {
           {connectionStatus}
         </Badge>
       </header>
-      <main className="flex-grow flex items-center justify-center p-8">
-        <Card className="w-full max-w-md">
-          <CardHeader>
-            <CardTitle className="text-2xl font-light flex items-center gap-2">
-              <Thermometer className="h-6 w-6" />
-              Live Battery Temperature
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="flex items-center justify-center">
-            <Numeric temp={temperature} />
-          </CardContent>
-        </Card>
+      <main className="flex-grow p-4 md:p-6">
+        <div className="grid grid-cols-12 gap-4">
+
+          <div className="col-span-12 md:col-span-8 h-80">
+            <TemperatureChart data={temperatureData} />
+          </div>
+
+          <div className="col-span-12 md:col-span-4 h-80">
+            <Card className="w-full h-full flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-2xl font-light flex items-center gap-2">
+                  <Thermometer className="h-6 w-6" />
+                  Live Battery Temperature
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex-grow items-center justify-center">
+                <Numeric temp={temperature} />
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="col-span-12 md:col-span-6 h-64 flex items-center justify-center">
+            <Card className="w-full h-full">
+              <CardHeader>
+                <CardTitle>Available Panel</CardTitle>
+              </CardHeader>
+              <CardContent className="flex items-center justify-center text-muted-foreground">
+                Space for additional components
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="col-span-12 md:col-span-6 h-64 flex items-center justify-center">
+            <Card className="w-full h-full">
+              <CardHeader>
+                <CardTitle>Available Panel</CardTitle>
+              </CardHeader>
+              <CardContent className="flex items-center justify-center text-muted-foreground">
+                Space for additional components
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </main>
     </div>
   )
