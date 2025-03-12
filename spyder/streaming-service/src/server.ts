@@ -11,25 +11,21 @@ const WS_PORT = 8080;
 const tcpServer = net.createServer();
 const websocketServer = new WebSocketServer({ port: WS_PORT });
 
-// Battery Temp Monitoring 
 const SAFE_TEMP_MIN = 20;
 const SAFE_TEMP_MAX = 80;
 const MAX_ALERTS = 3;
 const MONITORING_WINDOW_MS = 5000; // 5 seconds
-
-// Store temp alerts 
 const tempAlerts: number[] = [];
 
-// Function to handle invalid data 
+ /**
+   * Function to handle invalid data. 
+   */
 function validateBatteryData(data: any): any {
-  
-  // Make sure we have a valid data structure
   if (!data || typeof data.timestamp !== 'number') {
     console.warn("Invalid data structure received:", data);
     return null;
   }
 
-  // Check if data is valid (battery_temperature is a number)
   if (!data || typeof data.battery_temperature !== 'number') {
     console.warn("Invalid data received: ", data);
     return null;
@@ -41,7 +37,9 @@ function validateBatteryData(data: any): any {
   };
 }
 
-// Function to check if battery temp is within safe range
+ /**
+   * Function to monitor battery temperature.
+   */
 function monitorBatteryTemp(data: VehicleData): void {
   const {battery_temperature, timestamp} = data;
 
