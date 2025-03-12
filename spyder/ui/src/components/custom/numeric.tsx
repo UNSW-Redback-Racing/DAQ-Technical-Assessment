@@ -1,3 +1,5 @@
+import { cn } from "../../lib/utils";
+ 
 interface TemperatureProps {
   temp: any;
 }
@@ -16,9 +18,14 @@ function Numeric({ temp }: TemperatureProps) {
   //  - (or) other solution
 
   // Justify your choice of implementation in brainstorming.md
+  const temperatureColor = cn({
+    'text-temperature-safe': temp >= 20 && temp <= 80,
+    'text-temperature-warning':  (temp >= 20 && temp <= 25) || (temp >= 75 && temp <= 80),
+    'text-temperature-unsafe': temp < 20 || temp > 80,
+  });
 
   return (
-    <div className="text-foreground text-4xl font-bold">
+    <div className={cn("text-4xl font-bold", temperatureColor)}>
       {`${temp.toFixed(3)}°C`}
     </div>
   );
