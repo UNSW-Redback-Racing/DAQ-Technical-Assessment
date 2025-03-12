@@ -19,7 +19,7 @@ function Numeric({ temp }: TemperatureProps) {
 
   return (
     <div className="text-foreground text-4xl font-bold">
-      {`${temp}°C`}
+      {`${temp.toFixed(3)}°C`}
     </div>
   );
 }
