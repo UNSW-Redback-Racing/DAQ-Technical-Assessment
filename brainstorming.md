@@ -59,6 +59,15 @@ Seeing the question - the first place I thought of to check for bugs was in page
 Could immediately see the problem here. It's because the hook here has an empty dependency array so it means it only runs once when the component mounts, so it doesn't really react to changes to readyState. To fix the problem, I tried adding readyState to the dependency array, and it worked yay! The button now updated the connection status accordingly :) 
 
 Task #5: 
+Ideas for extra features:
+- Toast notifications for Task 4 errors. make a notification button that opens up a popup that shows notifs?
+- Light / Dark Mode toggle button 
+- chart to display temp data.
 
+Feature #1: You can move the widgets around and re-arrange your dashboard as you wish :) Drag and droppable <3 + there's also a 'reset layout' button in case you don't like your config.
+
+Feature #2: Chart widget - where you can visualise real-time data (battery temps)
+
+Feature #3: Light mode and dark mode! Press the little button on the top right to toggle dark/light mode! 
 ## Cloud
 N/A
