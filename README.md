@@ -1,6 +1,6 @@
 ![daq_ta_banner](https://github.com/UNSW-Redback-Racing/DAQ-Technical-Assessment/assets/38149391/9893b793-21ac-4b30-a48f-e26003763460)
 
-# UNSW Redback Racing | Data Acquisition Technical Assessment 2025 T1
+# UNSW Redback Racing | Data Acquisition Technical Assessment 2025 T3
 
 This assessment aims to gauge your current technical ability and give you a practical introduction to some of what we do here at Redback Racing. We don't expect everyone to complete everything perfectly - you may not be familiar with all the frameworks and tools mentioned here, and so you may find it helpful to consult the resources linked, as well as doing your own research.
 
@@ -10,7 +10,7 @@ We also highly encourage you to read through the code and try to understand how 
 
 If you have any questions/require clarification about the spec, direct them to the [#daq-ta-questions](https://discord.com/channels/884232338316345374/1144840015856291890) channel within the [UNSW Redback Racing Discord](https://discord.gg/7RT4qewZ) server.
 
-### Submission Due Date: 11:59PM 15/03/2025
+### Submission Due Date: 11:59PM 06/09/2025
 
 ## Prerequisites
 
