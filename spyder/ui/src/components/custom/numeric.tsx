@@ -1,3 +1,6 @@
+import { cn } from "@/lib/utils"
+
+
 interface TemperatureProps {
   temp: any;
 }
@@ -17,9 +20,19 @@ function Numeric({ temp }: TemperatureProps) {
 
   // Justify your choice of implementation in brainstorming.md
 
+  const numericTemp = typeof temp === "number" ? temp : parseFloat(temp);
+
+  let color = "#ffffff";
+  if (numericTemp < 20 || numericTemp > 80) color = "#ef4444";
+  else if ((numericTemp >= 20 && numericTemp < 25) || (numericTemp > 75 && numericTemp <= 80)) color = "#eab308";
+  else color = "#22c55e";
+
   return (
-    <div className="text-foreground text-4xl font-bold">
-      {`${temp}°C`}
+    <div
+      className={cn("text-4xl font-bold")}
+      style={{ color }}
+    >
+      {numericTemp.toFixed(3)}°C
     </div>
   );
 }

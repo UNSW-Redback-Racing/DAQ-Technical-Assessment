@@ -11,6 +11,13 @@ const WS_PORT = 8080;
 const tcpServer = net.createServer();
 const websocketServer = new WebSocketServer({ port: WS_PORT });
 
+
+let outOfRangeEvents: number[] = [];
+const RANGE_MIN = 20;
+const RANGE_MAX = 80;
+const WINDOW_MS = 5000;
+const MAX_EVENTS = 3;
+
 tcpServer.on("connection", (socket) => {
   console.log("TCP client connected");
 
@@ -18,13 +25,42 @@ tcpServer.on("connection", (socket) => {
     const message: string = msg.toString();
 
     console.log(`Received: ${message}`);
-    
-    // Send JSON over WS to frontend clients
-    websocketServer.clients.forEach(function each(client) {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(message);
+
+    try {
+      const data: VehicleData = JSON.parse(message);
+
+      // check type is number not string
+      if (typeof data.battery_temperature === "number" && typeof data.timestamp === "number") {
+        const temp = data.battery_temperature;
+        // Only send valid data
+        websocketServer.clients.forEach(function each(client) {
+          if (client.readyState === WebSocket.OPEN) {
+            client.send(JSON.stringify(data));
+          }
+        });
+
+        // Check range
+        if (temp < RANGE_MIN || temp > RANGE_MAX) {
+          // Record the event timestamp
+          outOfRangeEvents.push(data.timestamp);
+
+          // Keep only events in last 5 seconds
+          const cutoff = data.timestamp - WINDOW_MS;
+          outOfRangeEvents = outOfRangeEvents.filter(t => t >= cutoff);
+
+          // If more than 3 in last 5 seconds then log error
+          if (outOfRangeEvents.length > MAX_EVENTS) {
+            console.error(`[${new Date(data.timestamp).toISOString()}] ERROR: Battery temperature exceeded safe range more than 3 times in 5s`);
+            // reset events to avoid spamming
+            outOfRangeEvents = [];
+          }
+        }
+      } else {
+        console.warn("Dropping invalid data:", data);
       }
-    });
+    } catch (err) {
+      console.error("Failed to parse incoming data:", err);
+    }
   });
 
   socket.on("end", () => {
